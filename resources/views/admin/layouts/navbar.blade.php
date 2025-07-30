@@ -5,7 +5,7 @@
             <img src="{{ asset('backend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">EduPulse</h4>
+            <h4 class="logo-text" style="color: #244960;">EduPulse</h4>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
         </div>
@@ -13,8 +13,15 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="{{route('admin.dashboard')}}">
+            <a href="{{ route('home') }}">
                 <div class="parent-icon"><i class='bx bx-home-alt'></i>
+                </div>
+                <div class="menu-title">Home</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.dashboard') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
                 <div class="menu-title">Dashboard</div>
             </a>
@@ -24,6 +31,34 @@
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
                 <div class="menu-title">Profile</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.students.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Students</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.fee-types.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Fee Type</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.fees.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Fee</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.transactions.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Transaction</div>
             </a>
         </li>
         <li>
@@ -42,13 +77,7 @@
             </a>
         </li>
 
-        <li>
-            <a href="{{ route('admin.system-settings.index') }}">
-                <div class="parent-icon"><i class="bx bx-cog"></i>
-                </div>
-                <div class="menu-title">System Settings</div>
-            </a>
-        </li>
+
     </ul>
     <!--end navigation-->
 </div>

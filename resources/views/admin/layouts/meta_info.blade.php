@@ -29,5 +29,11 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/assets/css/header-colors.css') }}" />
+
+
+    {{-- custom css --}}
+    <link rel="stylesheet" href="{{ asset('assets/custom.css') }}">
+
+    
     <title>@yield('title') | EduPulse Admin</title>
 </head>

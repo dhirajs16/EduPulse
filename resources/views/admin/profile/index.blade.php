@@ -10,7 +10,7 @@
                         <h3 class="card-title">{{ __('Edit Profile') }}</h3>
 
                         {{-- avatar preview --}}
-                        <img class="my-3" src="{{ Auth::user()->avatar }}" alt="avatar" width="100px">
+                        <img class="my-3 rounded-circle" src="{{ Auth::user()->avatar }}" alt="avatar" width="100px">
 
                         {{-- Admin Profile Update Form --}}
                         <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">

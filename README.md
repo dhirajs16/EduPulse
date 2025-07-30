@@ -1,5 +1,8 @@
-# ovvo_fashion_brand
+# Edupulse: A School erp
 
+light blue: #4688AA
+blue: #244960
+orange: #f7A63B
 
 
 ## Getting started

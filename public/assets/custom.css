@@ -1,0 +1,20 @@
+
+.bg-custom-main {
+    background-color: #244960;
+    color: white;
+    transition: none;
+    }
+    .bg-custom-main:hover {
+        background-color: #244960;
+        color: white;
+}
+
+.bg-custom-sec {
+    background-color: #4688AA;
+}
+
+
+.bg-custom-ter {
+    background-color: #f7A63B;
+}
+

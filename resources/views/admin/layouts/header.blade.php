@@ -8,13 +8,16 @@
             </div>
             <div class="top-menu ms-auto">
                 <ul class="navbar-nav align-items-center gap-1">
+                    {{-- search --}}
                     <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal"
                         data-bs-target="#SearchModal">
                         <a class="nav-link" href="avascript:;"><i class='bx bx-search'></i>
                         </a>
                     </li>
+
+                    {{-- language options --}}
                     <li class="nav-item dropdown dropdown-laungauge d-none d-sm-flex">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="avascript:;"
+                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="avascript:;"
                             data-bs-toggle="dropdown"><img src="assets/images/county/02.png" width="22"
                                 alt="">
                         </a>
@@ -53,10 +56,42 @@
                             </li>
                         </ul>
                     </li>
+
+                    {{-- dark mode --}}
                     <li class="nav-item dark-mode d-none d-sm-flex">
-                        <a class="nav-link dark-mode-icon" href="javascript:;"><i class='bx bx-moon'></i>
+                         <a class="nav-link dark-mode-icon" href="javascript:;"><i class='bx bx-moon'></i>
                         </a>
+
+                        {{-- <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" aria-label="Enable dark mode"
+                            data-bs-original-title="Enable dark mode">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="?theme=light" class="nav-link px-0 hide-theme-light" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" aria-label="Enable light mode"
+                            data-bs-original-title="Enable light mode">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                <path
+                                    d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7">
+                                </path>
+                            </svg>
+                        </a> --}}
                     </li>
+
+                    {{-- social media links --}}
                     <li class="nav-item dropdown dropdown-app">
                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown"
                             href="javascript:;"><i class='bx bx-grid-alt'></i></a>
@@ -304,8 +339,10 @@
                         </div>
                     </li>
 
+
+                    {{-- notification --}}
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
+                           <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
                             data-bs-toggle="dropdown"><span class="alert-count">7</span>
                             <i class='bx bx-bell'></i>
                         </a>
@@ -439,8 +476,11 @@
                             </a>
                         </div>
                     </li>
+
+
+                    {{-- cart --}}
                     <li class="nav-item dropdown dropdown-large">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
+                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span
                                 class="alert-count">8</span>
                             <i class='bx bx-shopping-bag'></i>
@@ -642,23 +682,23 @@
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{-- <img src="{{ asset('backend/assets/images/avatars/avatar-2.png') }}" class="user-img" alt="user avatar"> --}}
-                    <img class="my-3" src="{{ Auth::user()->avatar }}" alt="avatar" width="40px">
+                    <img class="my-3 rounded-circle" src="{{ Auth::user()->avatar }}" alt="avatar" width="40px">
                     <div class="user-info">
                         <p class="user-name mb-0">{{ Auth::user()->name }}</p>
                         <p class="designattion mb-0">Admin</p>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}"><i
+                                class="bx bx-home-circle fs-5"></i><span>Home</span></a>
+                    </li>
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.dashboard') }}"><i
                                 class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
                     </li>
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.profile') }}"><i
                                 class="bx bx-user fs-5"></i><span>Profile</span></a>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center"
-                            href="{{ route('admin.system-settings.index') }}"><i
-                                class="bx bx-cog fs-5"></i><span>Settings</span></a>
-                    </li>
+
                     {{-- <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-dollar-circle fs-5"></i><span>Earnings</span></a>
                     </li>
                     <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-download fs-5"></i><span>Downloads</span></a>
@@ -669,7 +709,9 @@
                     <li>
                         <form action="{{ route('admin.logout') }}" method="post">
                             @csrf
-                            <button class="btn btn-link text-decoration-none text-dark dropdown-item d-flex align-items-center" type="submit">Logout</button>
+                            <button
+                                class="btn btn-link text-decoration-none text-dark dropdown-item d-flex align-items-center"
+                                type="submit">Logout</button>
                         </form>
                         {{-- <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a> --}}
                     </li>

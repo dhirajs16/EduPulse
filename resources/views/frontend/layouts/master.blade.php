@@ -33,6 +33,10 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/home/css/style.css') }}" rel="stylesheet">
+
+
+    {{-- custom css --}}
+    <link rel="stylesheet" href="{{ asset('assets/custom.css') }}">
 </head>
 
 <body>

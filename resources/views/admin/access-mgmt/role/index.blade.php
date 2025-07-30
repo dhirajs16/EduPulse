@@ -48,8 +48,7 @@
                                                                 @method('DELETE')
 
                                                                 <button class="btn-link text-decoration-none"
-                                                                    type="submit"><i
-                                                                        class="bi bi-trash3 text-danger"></i></i></button>
+                                                                    type="submit"><i class="bx bxs-trash text-danger"></i></button>
 
                                                             </form>
                                                         @endif

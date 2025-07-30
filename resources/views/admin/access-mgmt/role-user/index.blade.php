@@ -35,7 +35,7 @@
                                                     </td>
                                                     <td>
                                                         @foreach ($admin->getRoleNames() as $role)
-                                                            <span class="badge bg-blue-lt">{{ $role }}</span>
+                                                            <span class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3"><i class="bx bxs-circle me-1"></i>{{ $role }}</span>
                                                         @endforeach
                                                     </td>
                                                     <td @if ($admin->roles->first()?->name != 'super admin') class="d-flex fs-2 gap-2" @endif>

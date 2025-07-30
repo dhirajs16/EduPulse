@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SystemSetting extends Model
+class FeeType extends Model
 {
     protected $fillable = [
-        'key',
-        'value',
+        'name',
         'description',
-        'code',
-        'status'
     ];
+
+    public function fees()
+    {
+        return $this->hasMany(Fee::class);
+    }
 }

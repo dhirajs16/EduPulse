@@ -9,6 +9,10 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\RoleUserController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SystemSettingController;
+use App\Http\Controllers\FeeController;
+use App\Http\Controllers\FeeTypeController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin')
@@ -63,6 +67,15 @@ Route::middleware('auth:admin')
         // admin settings routes
         Route::resource('settings', SettingController::class);
 
-        // admin system setting routes
-        Route::resource('system-settings', SystemSettingController::class);
+        // Student management routes
+        Route::resource('students', StudentController::class);
+
+        // Fee Type management routes
+        Route::resource('fee-types', FeeTypeController::class);
+
+        // Fee management routes
+        Route::resource('fees', FeeController::class);
+
+        // Transaction management routes
+        Route::resource('transactions', TransactionController::class);
     });
