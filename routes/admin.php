@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\SystemSettingController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\FeeTypeController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,4 +80,10 @@ Route::middleware('auth:admin')
 
         // Transaction management routes
         Route::resource('transactions', TransactionController::class);
+
+        // Subject management routes
+        Route::resource('subjects', SubjectController::class);
+
+        // Teacher management routes
+        Route::resource('teachers', TeacherController::class);
     });

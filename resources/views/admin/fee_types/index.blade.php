@@ -74,5 +74,5 @@
 @endsection
 
 @section('script')
-@include('fee_types.script')
+@include('admin.fee_types.script')
 @endsection

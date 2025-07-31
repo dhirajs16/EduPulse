@@ -20,14 +20,14 @@ class FeeController extends Controller
         $fees = $this->feeService->list();
         $feeTypes = FeeType::all();
         $grades = Grade::all();
-        return view('fees.index', compact('fees', 'feeTypes', 'grades'));
+        return view('admin.fees.index', compact('fees', 'feeTypes', 'grades'));
     }
 
     public function create()
     {
         $feeTypes = FeeType::all();
         $grades = Grade::all();
-        return view('fees.create', compact('feeTypes', 'grades'));
+        return view('admin.fees.create', compact('feeTypes', 'grades'));
     }
 
     public function store(StoreFeeRequest $request)
@@ -45,7 +45,7 @@ class FeeController extends Controller
         $grades = Grade::all();
 
 
-        return view('fees.edit', compact('fee', 'feeTypes', 'grades'));
+        return view('admin.fees.edit', compact('fee', 'feeTypes', 'grades'));
     }
 
     public function update(UpdateFeeRequest $request, $id)

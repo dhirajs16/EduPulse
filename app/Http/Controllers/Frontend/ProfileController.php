@@ -24,21 +24,29 @@ class ProfileController extends Controller
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
+
         $user = Auth::user();
 
-        if ($request->hasFile('avatar')) {
-            // Delete old avatar if exists
-            $this->handleDeleteFile($user->avatar);
-            $avatarPath = $this->handleUploadFile($request->avatar);
-            $user->avatar = $avatarPath;
+        if ($request->user_type == 'student') {
+            $student = $user->student;
+            if ($request->hasFile('avatar')) {
+                // Delete old avatar if exists
+                if ($student->avatar) {
+                    $this->handleDeleteFile($student->avatar);
+                }
+                $avatarPath = $this->handleUploadFile($request->avatar);
+                $student->avatar = $avatarPath;
+            }
+            $student->name = $request->name;
+            $student->email = $request->email;
+            $student->country = $request->country;
+            $student->city = $request->city;
+            $student->address = $request->address;
+            $student->shipping_address = $request->shipping_address;
+            $student->save();
         }
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->country = $request->country;
-        $user->city = $request->city;
-        $user->address = $request->address;
-        $user->shipping_address = $request->shipping_address;
-        $user->save();
+
+
 
         NotificationService::UPDATED("Profile Updated Successfully.");
 

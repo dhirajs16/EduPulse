@@ -23,7 +23,7 @@ class TransactionController extends Controller
         $students = Student::all();
         $fees = Fee::all();
 
-        return view('transactions.index', compact('transactions', 'students', 'fees'));
+        return view('admin.transactions.index', compact('transactions', 'students', 'fees'));
     }
 
     public function create()
@@ -31,7 +31,7 @@ class TransactionController extends Controller
         $students = Student::all();
         $fees = Fee::all();
 
-        return view('transactions.create', compact('students', 'fees'));
+        return view('admin.transactions.create', compact('students', 'fees'));
     }
 
     public function store(StoreTransactionRequest $request)
@@ -48,7 +48,7 @@ class TransactionController extends Controller
         $students = Student::all();
         $fees = Fee::all();
 
-        return view('transactions.edit', compact('transaction', 'students', 'fees'));
+        return view('admin.transactions.edit', compact('transaction', 'students', 'fees'));
     }
 
     public function update(UpdateTransactionRequest $request, $id)

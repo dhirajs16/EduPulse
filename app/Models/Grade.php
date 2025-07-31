@@ -19,4 +19,9 @@ class Grade extends Model
     {
         return $this->hasMany(Fee::class);
     }
+
+    public function teachers() {
+        return $this->belongsToMany(Teacher::class, 'grade_teacher')
+            ->withPivot('subject_id');
+    }
 }

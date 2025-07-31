@@ -103,5 +103,5 @@
 @endsection
 
 @section('script')
-@include('fees.script')
+@include('admin.fees.script')
 @endsection

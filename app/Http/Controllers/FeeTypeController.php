@@ -16,12 +16,12 @@ class FeeTypeController extends Controller
     public function index()
     {
         $feeTypes = $this->feeTypeService->list();
-        return view('fee_types.index', compact('feeTypes'));
+        return view('admin.fee_types.index', compact('feeTypes'));
     }
 
     public function create()
     {
-        return view('fee_types.create');
+        return view('admin.fee_types.create');
     }
 
     public function store(StoreFeeTypeRequest $request)
@@ -35,7 +35,7 @@ class FeeTypeController extends Controller
     public function edit($id)
     {
         $feeType = $this->feeTypeService->find($id);
-        return view('fee_types.edit', compact('feeType'));
+        return view('admin.fee_types.edit', compact('feeType'));
     }
 
     public function update(UpdateFeeTypeRequest $request, $id)

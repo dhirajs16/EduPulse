@@ -104,5 +104,5 @@
 @endsection
 
 @section('script')
-@include('transactions.script')
+@include('admin.transactions.script')
 @endsection

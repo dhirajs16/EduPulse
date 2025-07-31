@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use PHPUnit\Framework\MockObject\Builder\Stub;
 
 class User extends Authenticatable
 {
@@ -44,5 +45,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+
+    function student() {
+        return $this->hasOne(Student::class, 'user_id', 'id')->where('user_type', 'student');
+    }
+    function teacher() {
+        return $this->hasOne(Teacher::class, 'user_id', 'id')->where('user_type', 'teacher');
     }
 }

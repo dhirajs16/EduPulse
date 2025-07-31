@@ -18,14 +18,14 @@ class StudentController extends Controller
     public function index()
     {
         $students = $this->studentService->list();
-        return view('students.index', compact('students'));
+        return view('admin.students.index', compact('students'));
     }
 
     public function create()
     {
         $users = User::where('user_type', 'student')->get();
         $grades = Grade::all();
-        return view('students.create', compact('users', 'grades'));
+        return view('admin.students.create', compact('users', 'grades'));
     }
 
     public function store(StoreStudentRequest $request)
@@ -49,7 +49,7 @@ class StudentController extends Controller
         $users = User::where('user_type', 'student')->get();
         $grades = Grade::all();
 
-        return view('students.edit', compact('student', 'users', 'grades'));
+        return view('admin.students.edit', compact('student', 'users', 'grades'));
     }
 
     public function update(UpdateStudentRequest $request, $id)

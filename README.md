@@ -4,6 +4,17 @@ light blue: #4688AA
 blue: #244960
 orange: #f7A63B
 
+@extends('admin.layouts.master')
+
+
+
++
+bx bxs-plus-square
+
+ radius-30" style="background-color: #244960;"
+
+badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3
+<i class="bx bxs-circle me-1"></i>
 
 ## Getting started
 

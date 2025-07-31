@@ -19,8 +19,7 @@
     </div>
     <!--end breadcrumb-->
 
-    <div class="card">
-        <div class="card-body">
+    <div class="card"><div class="card-body">
 
             {{-- Search inputs --}}
             <div class="row align-items-end mb-3 g-3">
@@ -98,5 +97,5 @@
 @endsection
 
 @section('script')
-@include('students.script')
+@include('admin.students.script')
 @endsection

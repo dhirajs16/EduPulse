@@ -41,24 +41,38 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('admin.teachers.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Teachers</div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.subjects.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Subjects</div>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('admin.fee-types.index') }}">
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
-                <div class="menu-title">Fee Type</div>
+                <div class="menu-title">Fee Types</div>
             </a>
         </li>
         <li>
             <a href="{{ route('admin.fees.index') }}">
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
-                <div class="menu-title">Fee</div>
+                <div class="menu-title">Fees</div>
             </a>
         </li>
         <li>
             <a href="{{ route('admin.transactions.index') }}">
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
-                <div class="menu-title">Transaction</div>
+                <div class="menu-title">Transactions</div>
             </a>
         </li>
         <li>
