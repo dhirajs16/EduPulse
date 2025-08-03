@@ -33,13 +33,23 @@ class Teacher extends Model
     }
 
     public function grades() {
-        return $this->belongsToMany(Grade::class, 'grade_teacher')
+        return $this->belongsToMany(Grade::class, 'grade_teachers')
             ->withPivot('subject_id');
     }
 
     public function subjects() {
-        return $this->belongsToMany(Subject::class, 'grade_teacher')
+        return $this->belongsToMany(Subject::class, 'grade_teachers')
             ->withPivot('grade_id');
+    }
+
+    public function timeTables()
+    {
+        return $this->hasMany(TimeTable::class);
+    }
+
+    public function getNameAttribute()
+    {
+        return trim("{$this->first_name} {$this->middle_name} {$this->last_name}");
     }
 
 }

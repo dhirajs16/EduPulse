@@ -14,6 +14,7 @@ use App\Http\Controllers\FeeTypeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TimeTableController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -86,4 +87,7 @@ Route::middleware('auth:admin')
 
         // Teacher management routes
         Route::resource('teachers', TeacherController::class);
+
+        // Teacher management routes
+        Route::resource('time-tables', TimeTableController::class);
     });

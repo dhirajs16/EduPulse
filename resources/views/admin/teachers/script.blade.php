@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${formatWithBadge(item.subjects)}</td>
                 <td>${formatWithBadge(item.grades)}</td>
                 <td>
-                    <a href="{{ url('teachers') }}/${item.id}/edit" class="btn btn-sm btn-primary me-1" title="Edit"><i class="bx bxs-edit"></i></a>
-                    <form method="POST" action="{{ url('teachers') }}/${item.id}" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this teacher?');">
+                    <a href="{{ url('admin/teachers') }}/${item.id}/edit" class="btn btn-sm btn-primary me-1" title="Edit"><i class="bx bxs-edit"></i></a>
+                    <form method="POST" action="{{ url('admin/teachers') }}/${item.id}" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this teacher?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger" title="Delete"><i class="bx bxs-trash"></i></button>

@@ -48,8 +48,9 @@ class TeacherController extends Controller
     {
         $teacher = $this->teacherService->find($id);
         $users = User::where('user_type', 'teacher')->get();
-
-        return view('admin.teachers.edit', compact('teacher', 'users'));
+        $subjects = Subject::all();
+        $grades = Grade::all();
+        return view('admin.teachers.edit', compact('teacher', 'users', 'subjects', 'grades'));
     }
 
     public function update(UpdateTeacherRequest $request, $id)

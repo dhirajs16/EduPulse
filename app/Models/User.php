@@ -49,9 +49,9 @@ class User extends Authenticatable
 
 
     function student() {
-        return $this->hasOne(Student::class, 'user_id', 'id')->where('user_type', 'student');
+        return $this->hasOne(Student::class, 'user_id', 'id');
     }
     function teacher() {
-        return $this->hasOne(Teacher::class, 'user_id', 'id')->where('user_type', 'teacher');
+        return $this->hasOne(Teacher::class, 'user_id', 'id');
     }
 }

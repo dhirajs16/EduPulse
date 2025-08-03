@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\TimeTable;
 use App\Repositories\Implementations\FeeRepository;
 use App\Repositories\Implementations\FeeTypeRepository;
 use App\Repositories\Implementations\StudentRepository;
 use App\Repositories\Implementations\SubjectRepository;
 use App\Repositories\Implementations\SystemSettingRepository;
 use App\Repositories\Implementations\TeacherRepository;
+use App\Repositories\Implementations\TimeTableRepository;
 use App\Repositories\Implementations\TransactionRepository;
 use App\Repositories\Interfaces\FeeRepositoryInterface;
 use App\Repositories\Interfaces\FeeTypeRepositoryInterface;
@@ -15,6 +17,7 @@ use App\Repositories\Interfaces\StudentRepositoryInterface;
 use App\Repositories\Interfaces\SubjectRepositoryInterface;
 use App\Repositories\Interfaces\SystemSettingRepositoryInterface;
 use App\Repositories\Interfaces\TeacherRepositoryInterface;
+use App\Repositories\Interfaces\TimeTableRepositoryInterface;
 use App\Repositories\Interfaces\TransactionRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -33,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(TransactionRepositoryInterface::class, TransactionRepository::class);
         $this->app->bind(SubjectRepositoryInterface::class, SubjectRepository::class);
         $this->app->bind(TeacherRepositoryInterface::class, TeacherRepository::class);
+        $this->app->bind(TimeTableRepositoryInterface::class, TimeTableRepository::class);
 
         // You can add more bindings here as needed
     }

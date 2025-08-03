@@ -21,7 +21,12 @@ class Grade extends Model
     }
 
     public function teachers() {
-        return $this->belongsToMany(Teacher::class, 'grade_teacher')
+        return $this->belongsToMany(Teacher::class, 'grade_teachers')
             ->withPivot('subject_id');
+    }
+
+    public function timeTables()
+    {
+        return $this->hasMany(TimeTable::class);
     }
 }

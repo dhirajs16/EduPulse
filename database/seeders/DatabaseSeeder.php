@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Teacher;
 use App\Models\User;
 use Database\Seeders\AdminSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -22,10 +23,12 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            // UserSeeder::class,
+            UserSeeder::class,
             GradeSeeder::class,
-            // RolePermissionSeeder::class,
-            // AdminSeeder::class
+            RolePermissionSeeder::class,
+            AdminSeeder::class,
+            SubjectSeeder::class,
+            TeacherSeeder::class,
         ]);
     }
 }

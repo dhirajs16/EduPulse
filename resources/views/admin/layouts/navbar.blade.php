@@ -55,6 +55,13 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('admin.time-tables.index') }}">
+                <div class="parent-icon"><i class='bx bx-category'></i>
+                </div>
+                <div class="menu-title">Time Tables</div>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('admin.fee-types.index') }}">
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>

@@ -33,7 +33,7 @@
                             <label for="user_id" class="form-label">User Email <span class="text-danger">*</span></label>
                             <select name="user_id" id="user_id" class="form-select @error('user_id') is-invalid @enderror" required>
                                 <option value="">Select User Email</option>
-                                @foreach ($users as $user)
+                                @foreach ($users->sortByDesc('id') as $user)
                                     <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
                                         {{ $user->email }}
                                     </option>
@@ -62,7 +62,7 @@
 
                         <!-- Other existing fields omitted for brevity, keep your original fields -->
 
-                       
+
 
 
                         <div class="col-lg-6 mb-3">

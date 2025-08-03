@@ -1,80 +1,198 @@
 @extends('frontend.dashboard.layouts.master')
+@section('title', 'Dashboard')
 @section('content')
-<div class="dashboard-body__content">
+    <div class="page-content">
 
-                    <!-- welcome balance Content Start -->
-                    <div class="welcome-balance mt-2 mb-40 flx-between gap-2">
-                        <div class="welcome-balance__left">
-                            <h4 class="welcome-balance__title mb-0">Welcome back! {{ Auth::user()->name }}</h4>
-                        </div>
-                        <div class="welcome-balance__right flx-align gap-2">
-                            <span class="welcome-balance__text fw-500 text-heading"></span>
-                            <h4 class="welcome-balance__balance mb-0"></h4>
-                        </div>
-                    </div>
-                    <!-- welcome balance Content End -->
-
-                    <div class="dashboard-body__item-wrapper">
-
-                        <!-- dashboard body Item Start -->
-                        {{-- <div class="dashboard-body__item">
-                            <div class="row gy-4">
-                                <div class="col-xl-3 col-sm-6">
-                                    <div class="dashboard-widget green">
-                                        <span class="dashboard-widget__icon">
-                                            <i class="ti ti-list-details"></i>
-                                        </span>
-                                        <div class="dashboard-widget__content flx-between gap-1 align-items-end">
-                                            <div>
-                                                <h4 class="dashboard-widget__number mb-1 mt-3">2M+</h4>
-                                                <span class="dashboard-widget__text font-14">Total Products</span>
-                                            </div>
-                                        </div>
-                                    </div>
+        {{-- top 4 dashboard options --}}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+            {{-- Profile --}}
+            <div class="col">
+                <a href="{{ route('profile.personal_info') }}">
+                    <div class="card radius-10 border-start border-0 border-4 border-warning">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h4 class="my-1 text-warning">{{ __('Profile') }}</h4>
                                 </div>
-                                <div class="col-xl-3 col-sm-6">
-                                    <div class="dashboard-widget orange">
-                                        <span class="dashboard-widget__icon">
-                                            <i class="ti ti-currency-dollar"></i>
-                                        </span>
-                                        <div class="dashboard-widget__content flx-between gap-1 align-items-end">
-                                            <div>
-                                                <h4 class="dashboard-widget__number mb-1 mt-3">$5289.00</h4>
-                                                <span class="dashboard-widget__text font-14">Total Earnings</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-sm-6">
-                                    <div class="dashboard-widget blue">
-                                        <span class="dashboard-widget__icon">
-                                            <i class="ti ti-download"></i>
-                                        </span>
-                                        <div class="dashboard-widget__content flx-between gap-1 align-items-end">
-                                            <div>
-                                                <h4 class="dashboard-widget__number mb-1 mt-3">5,2458</h4>
-                                                <span class="dashboard-widget__text font-14">Total Downloads</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-sm-6">
-                                    <div class="dashboard-widget red">
-                                        <span class="dashboard-widget__icon">
-                                            <i class="ti ti-basket-check"></i>
-                                        </span>
-                                        <div class="dashboard-widget__content flx-between gap-1 align-items-end">
-                                            <div>
-                                                <h4 class="dashboard-widget__number mb-1 mt-3">2,589</h4>
-                                                <span class="dashboard-widget__text font-14">Total Sales</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-orange text-white ms-auto"><i
+                                        class='bx bxs-group'></i>
                                 </div>
                             </div>
-                        </div> --}}
-                        <!-- dashboard body Item End -->
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {{-- notice --}}
+            <div class="col">
+                <a href="">
+                    <div class="card radius-10 border-start border-0 border-4 border-info">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    {{-- <p class="mb-0 text-secondary">Total Orders</p> --}}
+                                    <h4 class="my-1 text-info">{{ __('Notice') }}</h4>
+                                    {{-- <p class="mb-0 font-13">+2.5% from last week</p> --}}
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i
+                                        class="lni lni-bubble"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
+            {{-- assignments --}}
+            <div class="col">
+                <a href="">
+                    <div class="card radius-10 border-start border-0 border-4 border-danger">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h4 class="my-1 text-danger">{{ __('Assignments') }}</h4>
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
+                                        class='bx bxs-wallet'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {{-- Events --}}
+            <div class="col">
+                <a href="">
+                    <div class="card radius-10 border-start border-0 border-4 border-success">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h4 class="my-1 text-success">{{ __('Events') }}</h4>
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i
+                                        class="fadeIn animated bx bx-calendar-event"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div><!--end row-->
+
+        <div class="row">
+            <div class="col-12 col-lg-8 d-flex">
+                <div class="card radius-10 w-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h6 class="mb-0">Sales Overview</h6>
+                            </div>
+                            <div class="dropdown ms-auto">
+                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#"
+                                    data-bs-toggle="dropdown"><i
+                                        class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center ms-auto font-13 gap-2 mb-3">
+                            <span class="border px-1 rounded cursor-pointer"><i class="bx bxs-circle me-1"
+                                    style="color: #14abef"></i>Sales</span>
+                            <span class="border px-1 rounded cursor-pointer"><i class="bx bxs-circle me-1"
+                                    style="color: #ffc107"></i>Visits</span>
+                        </div>
+                        <div class="chart-container-1">
+                            <canvas id="chart1"></canvas>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-3 g-0 row-group text-center border-top">
+                        <div class="col">
+                            <div class="p-3">
+                                <h5 class="mb-0">24.15M</h5>
+                                <small class="mb-0">Overall Visitor <span> <i class="bx bx-up-arrow-alt align-middle"></i>
+                                        2.43%</span></small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3">
+                                <h5 class="mb-0">12:38</h5>
+                                <small class="mb-0">Visitor Duration <span> <i
+                                            class="bx bx-up-arrow-alt align-middle"></i> 12.65%</span></small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3">
+                                <h5 class="mb-0">639.82</h5>
+                                <small class="mb-0">Pages/Visit <span> <i class="bx bx-up-arrow-alt align-middle"></i>
+                                        5.62%</span></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                @endsection
+            </div>
+            <div class="col-12 col-lg-4 d-flex">
+                <div class="card radius-10 w-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h6 class="mb-0">{{ __('Latest Event') }}</h6>
+                            </div>
+                            <div class="dropdown ms-auto">
+                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#"
+                                    data-bs-toggle="dropdown"><i
+                                        class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container-2">
+                            <canvas id="chart2"></canvas>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li
+                            class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
+                            Jeans <span class="badge bg-success rounded-pill">25</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            T-Shirts <span class="badge bg-danger rounded-pill">10</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Shoes <span class="badge bg-primary rounded-pill">65</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Lingerie <span class="badge bg-warning text-dark rounded-pill">14</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--end row-->
+
+    </div>
+
+@endsection

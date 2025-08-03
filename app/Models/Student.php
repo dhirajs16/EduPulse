@@ -39,4 +39,11 @@ class Student extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+
+
+    public function getNameAttribute()
+    {
+        return trim("{$this->first_name} {$this->middle_name} {$this->last_name}");
+    }
 }

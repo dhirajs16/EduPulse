@@ -16,10 +16,28 @@ class ProfileController extends Controller
 
     use FileUpload;
 
-    public function index(): View
+    public function personalInfo(): View
     {
-        $user = Auth::user();
-        return view('frontend.profile.index', compact('user'));
+        $user = Auth::guard('web')->user();
+        if ($user->user_type == 'student') {
+            $user = $user->student;
+        } elseif ($user->user_type == 'teacher') {
+            $user = $user->teacher;
+        }
+
+        return view('frontend.dashboard.profile.personal_info', compact('user'));
+    }
+
+    public function editPassword(): View
+    {
+        $user = Auth::guard('web')->user();
+        if ($user->user_type == 'student') {
+            $user = $user->student;
+        } elseif ($user->user_type == 'teacher') {
+            $user = $user->teacher;
+        }
+
+        return view('frontend.dashboard.profile.edit_password', compact('user'));
     }
 
     public function update(ProfileUpdateRequest $request): RedirectResponse

@@ -14,4 +14,16 @@ class Subject extends Model
         'credit_hours',
         'status', // active or inactive
     ];
+
+
+    public function timeTables()
+    {
+        return $this->hasMany(TimeTable::class);
+    }
+
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class, 'grade_teachers')
+            ->withPivot('grade_id');
+    }
 }
