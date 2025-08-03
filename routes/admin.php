@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\RoleUserController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SystemSettingController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\FeeController;
 use App\Http\Controllers\FeeTypeController;
 use App\Http\Controllers\StudentController;
@@ -55,39 +56,55 @@ Route::middleware('auth:admin')
         Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         Route::put('profile/password/update', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
 
-        // admin access management routes
-        Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
-        Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
-        Route::post('roles/store', [RoleController::class, 'store'])->name('roles.store');
-        Route::get('roles/edit/{role}', [RoleController::class, 'edit'])->name('roles.edit');
-        Route::put('roles/update/{role}', [RoleController::class, 'update'])->name('roles.update');
-        Route::delete('roles/delete/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
 
-        // admin role-user management routes
-        Route::resource('role-users', RoleUserController::class);
+        // routes exclusively accessible by admin role
+        Route::middleware(['role:super admin'])->group(function () {
 
-        // admin settings routes
-        Route::resource('settings', SettingController::class);
+            // user management routes
+            Route::resource('users', UserController::class);
 
-        // Student management routes
-        Route::resource('students', StudentController::class);
+            // admin access management routes
+            Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
+            Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
+            Route::post('roles/store', [RoleController::class, 'store'])->name('roles.store');
+            Route::get('roles/edit/{role}', [RoleController::class, 'edit'])->name('roles.edit');
+            Route::put('roles/update/{role}', [RoleController::class, 'update'])->name('roles.update');
+            Route::delete('roles/delete/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
-        // Fee Type management routes
-        Route::resource('fee-types', FeeTypeController::class);
+            // admin role-user management routes
+            Route::resource('role-users', RoleUserController::class);
 
-        // Fee management routes
-        Route::resource('fees', FeeController::class);
+            // admin settings routes
+            Route::resource('settings', SettingController::class);
 
-        // Transaction management routes
-        Route::resource('transactions', TransactionController::class);
+            // Subject management routes
+            Route::resource('subjects', SubjectController::class);
 
-        // Subject management routes
-        Route::resource('subjects', SubjectController::class);
 
-        // Teacher management routes
-        Route::resource('teachers', TeacherController::class);
+            // Student management routes
+            Route::resource('students', StudentController::class);
 
-        // Teacher management routes
-        Route::resource('time-tables', TimeTableController::class);
+            // Teacher management routes
+            Route::resource('teachers', TeacherController::class);
+
+
+            // Teacher management routes
+            Route::resource('time-tables', TimeTableController::class);
+        });
+
+
+        // Routes accessible by accountant role & super admin role
+        Route::middleware(['role:accountant|super admin'])->group(function () {
+
+
+            // Fee Type management routes
+            Route::resource('fee-types', FeeTypeController::class);
+
+            // Fee management routes
+            Route::resource('fees', FeeController::class);
+
+            // Transaction management routes
+            Route::resource('transactions', TransactionController::class);
+        });
     });

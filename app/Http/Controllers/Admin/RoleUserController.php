@@ -63,8 +63,8 @@ class RoleUserController extends Controller
     public function edit(Admin $role_user): View | RedirectResponse
     {
         // dd($role_user->name);
-        if ($role_user->name === "super admin") {
-            NotificationService::ERROR();
+        if ($role_user->hasRole("super admin")) {
+            NotificationService::ERROR("Can't open edit page of Super Admin.");
             return to_route('admin.role-users.index');
         }
 
@@ -78,8 +78,8 @@ class RoleUserController extends Controller
      */
     public function update(UpdateRoleUserRequest $request, Admin $role_user): RedirectResponse
     {
-        if ($role_user->name === "super admin") {
-            NotificationService::ERROR();
+        if ($role_user->hasRole("super admin")) {
+            NotificationService::ERROR("Can't open edit page of Super Admin.");
             return to_route('admin.role-users.index');
         }
 
@@ -101,8 +101,8 @@ class RoleUserController extends Controller
      */
     public function destroy(Admin $role_user): RedirectResponse
     {
-        if ($role_user->name === "super admin") {
-            NotificationService::ERROR();
+        if ($role_user->hasRole("super admin")) {
+            NotificationService::ERROR("Can't delete Super Admin.");
             return to_route('admin.role-users.index');
         }
 

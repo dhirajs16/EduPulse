@@ -14,7 +14,7 @@
             </nav>
         </div>
         <div class="ms-auto">
-            <a href="{{ route('admin.time-tables.index') }}" class="btn btn-primary">Back to List</a>
+            <a href="{{ route('admin.time-tables.index') }}" class="btn btn-primary radius-30" style="background-color: #244960;">Back to List</a>
         </div>
     </div>
     <!--end breadcrumb-->
@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="border border-3 p-4 rounded">
-                        <button type="submit" class="btn btn-primary">Update Timetable Entry</button>
+                        <button type="submit" class="btn btn-primary radius-30" style="background-color: #244960;">Update Timetable Entry</button>
                     </div>
                 </div>
 

@@ -17,7 +17,7 @@
 
                     {{-- language options --}}
                     <li class="nav-item dropdown dropdown-laungauge d-none d-sm-flex">
-                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="avascript:;"
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="avascript:;"
                             data-bs-toggle="dropdown"><img src="assets/images/county/02.png" width="22"
                                 alt="">
                         </a>
@@ -59,7 +59,7 @@
 
                     {{-- dark mode --}}
                     <li class="nav-item dark-mode d-none d-sm-flex">
-                         <a class="nav-link dark-mode-icon" href="javascript:;"><i class='bx bx-moon'></i>
+                        <a class="nav-link dark-mode-icon" href="javascript:;"><i class='bx bx-moon'></i>
                         </a>
 
                         {{-- <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip"
@@ -342,7 +342,7 @@
 
                     {{-- notification --}}
                     <li class="nav-item dropdown dropdown-large">
-                           <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
                             data-bs-toggle="dropdown"><span class="alert-count">7</span>
                             <i class='bx bx-bell'></i>
                         </a>
@@ -480,7 +480,7 @@
 
                     {{-- cart --}}
                     <li class="nav-item dropdown dropdown-large">
-                         <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
+                        <a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span
                                 class="alert-count">8</span>
                             <i class='bx bx-shopping-bag'></i>
@@ -678,20 +678,19 @@
                     </li>
                 </ul>
             </div>
+            {{-- @dd(Auth::user()->role) --}}
             <div class="user-box dropdown px-3">
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     {{-- <img src="{{ asset('backend/assets/images/avatars/avatar-2.png') }}" class="user-img" alt="user avatar"> --}}
-                    <img class="my-3 rounded-circle" src="{{ Auth::user()->avatar }}" alt="avatar" width="40px">
+                    <img class="my-3 rounded-circle" src="{{ Auth::user()->avatar }}" alt="avatar"
+                        width="40px">
                     <div class="user-info">
                         <p class="user-name mb-0">{{ Auth::user()->name }}</p>
-                        <p class="designattion mb-0">Admin</p>
+                        <p class="designattion mb-0">{{ auth()->user()->roles->pluck('name')->first() }}</p>
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}"><i
-                                class="bx bx-home-circle fs-5"></i><span>Home</span></a>
-                    </li>
                     <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.dashboard') }}"><i
                                 class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
                     </li>
@@ -699,21 +698,15 @@
                                 class="bx bx-user fs-5"></i><span>Profile</span></a>
                     </li>
 
-                    {{-- <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-dollar-circle fs-5"></i><span>Earnings</span></a>
-                    </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-download fs-5"></i><span>Downloads</span></a>
-                    </li> --}}
                     <li>
                         <div class="dropdown-divider mb-0"></div>
                     </li>
                     <li>
                         <form action="{{ route('admin.logout') }}" method="post">
                             @csrf
-                            <button
-                                class="btn btn-link text-decoration-none text-dark dropdown-item d-flex align-items-center"
-                                type="submit">Logout</button>
+                            <button class="menu-title btn btn-link text-decoration-none text-secondary"><i
+                                    class="fadeIn animated bx bx-exit me-3"></i>{{ __('Logout') }}</button>
                         </form>
-                        {{-- <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-log-out-circle"></i><span>Logout</span></a> --}}
                     </li>
                 </ul>
             </div>

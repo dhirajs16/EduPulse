@@ -24,8 +24,22 @@
             </div>
             <a href="#" class="nav-item nav-link">Contact Us</a>
         </div>
+        @if(!Auth::check())
         <a href="{{ route("login") }}" class="btn btn-light border  rounded-pill text-primary py-2 px-4 me-4">Log
             In</a>
-        <a href="{{ route('register') }}" class="btn btn-primary border rounded-pill text-white py-2 px-4">Sign Up</a>
+        <a href="{{ route('register') }}" class="btn btn-primary border rounded-pill text-white py-2 px-4">Request For Demo</a>
+
+
+        @else
+            <a href="{{ route('dashboard') }}">
+                @if(Auth::guard('web')->user()->user_type == 'student')
+                <img src="{{ asset(Auth::guard('web')->user()->student->avatar) }}" class="rounded-circle" width="30px" alt="student image">
+                @else
+                <img src="{{ asset(Auth::guard('web')->user()->teacher->avatar) }}" class="rounded-circle" width="30px" alt="teacher image">
+                @endif
+            </a>
+        @endif
+
+
     </div>
 </nav>

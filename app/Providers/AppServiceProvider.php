@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\TimeTable;
+use App\Repositories\Implementations\AssignmentRepository;
 use App\Repositories\Implementations\FeeRepository;
 use App\Repositories\Implementations\FeeTypeRepository;
 use App\Repositories\Implementations\StudentRepository;
@@ -11,6 +12,8 @@ use App\Repositories\Implementations\SystemSettingRepository;
 use App\Repositories\Implementations\TeacherRepository;
 use App\Repositories\Implementations\TimeTableRepository;
 use App\Repositories\Implementations\TransactionRepository;
+use App\Repositories\Implementations\UserRepository;
+use App\Repositories\Interfaces\AssignmentRepositoryInterface;
 use App\Repositories\Interfaces\FeeRepositoryInterface;
 use App\Repositories\Interfaces\FeeTypeRepositoryInterface;
 use App\Repositories\Interfaces\StudentRepositoryInterface;
@@ -19,6 +22,7 @@ use App\Repositories\Interfaces\SystemSettingRepositoryInterface;
 use App\Repositories\Interfaces\TeacherRepositoryInterface;
 use App\Repositories\Interfaces\TimeTableRepositoryInterface;
 use App\Repositories\Interfaces\TransactionRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -30,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Register the SystemSettingRepositoryInterface to SystemSettingRepository binding
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(StudentRepositoryInterface::class, StudentRepository::class);
         $this->app->bind(FeeTypeRepositoryInterface::class, FeeTypeRepository::class);
         $this->app->bind(FeeRepositoryInterface::class, FeeRepository::class);
@@ -37,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SubjectRepositoryInterface::class, SubjectRepository::class);
         $this->app->bind(TeacherRepositoryInterface::class, TeacherRepository::class);
         $this->app->bind(TimeTableRepositoryInterface::class, TimeTableRepository::class);
+        $this->app->bind(AssignmentRepositoryInterface::class, AssignmentRepository::class);
 
         // You can add more bindings here as needed
     }

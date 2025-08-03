@@ -9,7 +9,7 @@
             </div>
 
             <div class="top-menu ms-auto">
-                <ul class="navbar-nav align-items-center gap-1">
+                <ul class="navbar-nav align-items-center gap-1" hidden>
                     <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal"
                         data-bs-target="#SearchModal">
                         <a class="nav-link" href="avascript:;"><i class='bx bx-search'></i>
@@ -25,34 +25,8 @@
                                         src="backend/assets/images/county/01.png" width="20" alt=""><span
                                         class="ms-2">English</span></a>
                             </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/02.png" width="20" alt=""><span
-                                        class="ms-2">Catalan</span></a>
-                            </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/03.png" width="20" alt=""><span
-                                        class="ms-2">French</span></a>
-                            </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/04.png" width="20" alt=""><span
-                                        class="ms-2">Belize</span></a>
-                            </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/05.png" width="20" alt=""><span
-                                        class="ms-2">Colombia</span></a>
-                            </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/06.png" width="20" alt=""><span
-                                        class="ms-2">Spanish</span></a>
-                            </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/07.png" width="20" alt=""><span
-                                        class="ms-2">Georgian</span></a>
-                            </li>
-                            <li><a class="dropdown-item d-flex align-items-center py-2" href="javascript:;"><img
-                                        src="backend/assets/images/county/08.png" width="20" alt=""><span
-                                        class="ms-2">Hindi</span></a>
-                            </li>
+                            {{-- list --}}
+
                         </ul>
                     </li>
                     <li class="nav-item dark-mode d-none d-sm-flex">
@@ -78,227 +52,9 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/behance.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Behance</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/google-drive.png"
-                                                        width="30" alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Dribble</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/outlook.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Outlook</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/github.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">GitHub</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/stack-overflow.png"
-                                                        width="30" alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Stack</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/figma.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Stack</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/twitter.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Twitter</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/google-calendar.png"
-                                                        width="30" alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Calendar</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/spotify.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Spotify</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/google-photos.png"
-                                                        width="30" alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Photos</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/pinterest.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Photos</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/linkedin.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">linkedin</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/dribble.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Dribble</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/youtube.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">YouTube</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/google.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">News</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/envato.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Envato</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <a href="javascript:;">
-                                            <div class="app-box text-center">
-                                                <div class="app-icon">
-                                                    <img src="backend/assets/images/app/safari.png" width="30"
-                                                        alt="">
-                                                </div>
-                                                <div class="app-name">
-                                                    <p class="mb-0 mt-1">Safari</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    {{-- list --}}
+
+
 
                                 </div><!--end row-->
 
@@ -644,40 +400,40 @@
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret"
                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     @if (Auth::guard('web')->user()->user_type == 'student')
-                        <img src="{{ asset(Auth::guard('web')->user()->student->avatar) }}" class="user-img" alt="user avatar">
+                        <img src="{{ asset(Auth::guard('web')->user()->student->avatar) }}" class="user-img"
+                            alt="user avatar">
                         <div class="user-info">
                             <p class="user-name mb-0">{{ Auth::guard('web')->user()->student->name }}</p>
                             <p class="designattion mb-0">{{ Auth::guard('web')->user()->user_type }}</p>
                         </div>
                     @elseif(Auth::guard('web')->user()->user_type == 'teacher')
-                        <img src="{{ asset(Auth::guard('web')->user()->teacher->avatar) }}" class="user-img" alt="user avatar">
+                        <img src="{{ asset(Auth::guard('web')->user()->teacher->avatar) }}" class="user-img"
+                            alt="user avatar">
                         <div class="user-info">
                             <p class="user-name mb-0">{{ Auth::guard('web')->user()->teacher->name }}</p>
                             <p class="designattion mb-0">{{ Auth::guard('web')->user()->user_type }}</p>
                         </div>
                     @endif
                 </a>
+
+                {{-- profile dropdown --}}
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                class="bx bx-user fs-5"></i><span>Profile</span></a>
-                    </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                class="bx bx-cog fs-5"></i><span>Settings</span></a>
-                    </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
+                    <li><a class="dropdown-item d-flex align-items-center" href="{{ route('dashboard') }}"><i
                                 class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                class="bx bx-dollar-circle fs-5"></i><span>Earnings</span></a>
+                    <li><a class="dropdown-item d-flex align-items-center" href="{{ route('profile.personal_info') }}"><i
+                                class="bx bx-user fs-5"></i><span>Profile</span></a>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                class="bx bx-download fs-5"></i><span>Downloads</span></a>
-                    </li>
+
                     <li>
                         <div class="dropdown-divider mb-0"></div>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                class="bx bx-log-out-circle"></i><span>Logout</span></a>
+                    <li>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button class="menu-title btn btn-link text-decoration-none text-secondary"><i
+                                    class="fadeIn animated bx bx-exit me-3"></i>{{ __('Logout') }}</button>
+                        </form>
                     </li>
                 </ul>
             </div>

@@ -8,16 +8,28 @@
         </div>
         <div class="row gy-5 align-items-center">
             <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Transform Your School with EduPulse</h1>
-                <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">The complete School ERP solution for Birgunj schools - automating administration, academics, and communication.</p>
-                <a href="#" class="btn btn-primary border rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Request Free Demo</a>
-                <a href="#" class="btn btn-primary border  rounded-pill py-3 px-5 wow fadeInUp ms-2" data-wow-delay="0.8s">Log In</a>
+                <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Transform Your School with EduPulse
+                </h1>
+                <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">The complete School ERP solution for Birgunj schools -
+                    automating administration, academics, and communication.</p>
+
+
+                @if (!Auth::check())
+                    <a href="#" class="btn btn-primary border rounded-pill py-3 px-5 wow fadeInUp"
+                        data-wow-delay="0.1s">Request Free Demo</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary border  rounded-pill py-3 px-5 wow fadeInUp ms-2"
+                        data-wow-delay="0.1s">Log In</a>
+                @else
+                    <a href="{{ route('dashboard') }}" class="btn btn-primary border  rounded-pill py-3 px-5 wow fadeInUp ms-2">Dashboard</a>
+                @endif
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
                 <img src="{{ asset('assets/home/img/blog-1.png') }}" class="img-fluid w-100 h-100" alt="EduPulse Dashboard">
             </div>
         </div>
     </div>
+
+
     <!-- Hero Header End -->
     </div>
     <!-- Navbar & Hero End -->
@@ -56,16 +68,20 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="RotateMoveLeft">
-                        <img src="{{ asset('assets/home/img/about-1.png') }}" class="img-fluid w-100" alt="School Management System">
+                        <img src="{{ asset('assets/home/img/about-1.png') }}" class="img-fluid w-100"
+                            alt="School Management System">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h4 class="mb-1" style="color: #1b3e53">About EduPulse</h4>
                     <h1 class="display-5 mb-4">Complete School Management Solution</h1>
-                    <p class="mb-4">EduPulse is a comprehensive School ERP system designed specifically for educational institutions in Birgunj, Nepal. Our platform simplifies school administration, enhances academic management, and improves communication between teachers, students, and parents.
+                    <p class="mb-4">EduPulse is a comprehensive School ERP system designed specifically for educational
+                        institutions in Birgunj, Nepal. Our platform simplifies school administration, enhances academic
+                        management, and improves communication between teachers, students, and parents.
                     </p>
                     <div class="d-flex mb-3">
-                        <div class="flex-shrink-0 btn-square rounded-circle" style="width: 64px; height: 64px; background-color: #1b3e53">
+                        <div class="flex-shrink-0 btn-square rounded-circle"
+                            style="width: 64px; height: 64px; background-color: #1b3e53">
                             <i class="fas fa-check text-white"></i>
                         </div>
                         <div class="ms-4">
@@ -74,7 +90,8 @@
                         </div>
                     </div>
                     <div class="d-flex mb-3">
-                        <div class="flex-shrink-0 btn-square rounded-circle" style="width: 64px; height: 64px; background-color: #1b3e53">
+                        <div class="flex-shrink-0 btn-square rounded-circle"
+                            style="width: 64px; height: 64px; background-color: #1b3e53">
                             <i class="fas fa-check text-white"></i>
                         </div>
                         <div class="ms-4">
@@ -83,7 +100,8 @@
                         </div>
                     </div>
                     <div class="d-flex">
-                        <div class="flex-shrink-0 btn-square rounded-circle" style="width: 64px; height: 64px; background-color: #1b3e53">
+                        <div class="flex-shrink-0 btn-square rounded-circle"
+                            style="width: 64px; height: 64px; background-color: #1b3e53">
                             <i class="fas fa-check text-white"></i>
                         </div>
                         <div class="ms-4">
@@ -104,7 +122,8 @@
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                 <h4 class="mb-1" style="color: #f4a02a">Our Modules</h4>
                 <h1 class="display-5 mb-4">Comprehensive School Management Features</h1>
-                <p class="mb-0">EduPulse provides all the tools you need to efficiently manage your educational institution. From student admissions to examination results, we've got you covered.
+                <p class="mb-0">EduPulse provides all the tools you need to efficiently manage your educational
+                    institution. From student admissions to examination results, we've got you covered.
                 </p>
             </div>
             <div class="row g-4 justify-content-center">
@@ -146,8 +165,8 @@
                 </div>
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i
-                                class="fas fa-book fa-5x" style="color: #f4a02a"></i></div>
+                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-book fa-5x"
+                                style="color: #f4a02a"></i></div>
                         <div class="service-content">
                             <h4 class="mb-4">Academic Management</h4>
                             <p class="mb-4">Curriculum planning, timetable scheduling, and exam management
@@ -170,8 +189,8 @@
                 </div> --}}
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i
-                                class="fas fa-users fa-5x " style="color: #f4a02a"></i></div>
+                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-users fa-5x "
+                                style="color: #f4a02a"></i></div>
                         <div class="service-content">
                             <h4 class="mb-4">Parent Portal</h4>
                             <p class="mb-4">Real-time updates on student progress, attendance, and school events
@@ -182,8 +201,8 @@
                 </div>
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i
-                                class="fas fa-laptop fa-5x " style="color: #f4a02a"></i></div>
+                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-laptop fa-5x "
+                                style="color: #f4a02a"></i></div>
                         <div class="service-content">
                             <h4 class="mb-4">E-Learning</h4>
                             <p class="mb-4">Mock Test, assignments, and digital resource sharing
@@ -216,10 +235,13 @@
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                     <h4 class="" style="color: #1b3e53">Why Choose EduPulse</h4>
                     <h1 class="display-5 mb-4">Designed for Birgunj Schools</h1>
-                    <p class="mb-4">Our school management system is built with the specific needs of educational institutions in Birgunj in mind. We understand the local challenges and have created solutions that work for our community.</p>
+                    <p class="mb-4">Our school management system is built with the specific needs of educational
+                        institutions in Birgunj in mind. We understand the local challenges and have created solutions that
+                        work for our community.</p>
 
                     <div class="d-flex mb-4">
-                        <div class="flex-shrink-0 btn-square rounded-circle" style="width: 64px; height: 64px; background-color: #1b3e53">
+                        <div class="flex-shrink-0 btn-square rounded-circle"
+                            style="width: 64px; height: 64px; background-color: #1b3e53">
                             <i class="fas fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-4">
@@ -229,7 +251,8 @@
                     </div>
 
                     <div class="d-flex mb-4">
-                        <div class="flex-shrink-0 btn-square rounded-circle" style="width: 64px; height: 64px; background-color: #1b3e53">
+                        <div class="flex-shrink-0 btn-square rounded-circle"
+                            style="width: 64px; height: 64px; background-color: #1b3e53">
                             <i class="fas fa-bolt text-white"></i>
                         </div>
                         <div class="ms-4">
@@ -239,7 +262,8 @@
                     </div>
 
                     <div class="d-flex">
-                        <div class="flex-shrink-0 btn-square rounded-circle" style="width: 64px; height: 64px; background-color: #1b3e53">
+                        <div class="flex-shrink-0 btn-square rounded-circle"
+                            style="width: 64px; height: 64px; background-color: #1b3e53">
                             <i class="fas fa-headset text-white"></i>
                         </div>
                         <div class="ms-4">
@@ -388,11 +412,13 @@
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                 <h4 class="" style="color: #1b3e53">Testimonials</h4>
                 <h1 class="display-5 mb-4">What Birgunj Schools Say About EduPulse</h1>
-                <p class="mb-0">Hear from educational institutions in our community that have transformed their operations with our school management system.
+                <p class="mb-0">Hear from educational institutions in our community that have transformed their
+                    operations with our school management system.
                 </p>
             </div>
             <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
-                <div class="testimonial-item" data-dot="<img class='img-fluid' src='assets/home/img/testimonial-1.jpg' alt=''>">
+                <div class="testimonial-item"
+                    data-dot="<img class='img-fluid' src='assets/home/img/testimonial-1.jpg' alt=''>">
                     <div class="testimonial-inner text-center p-5">
                         <div class="d-flex align-items-center justify-content-center mb-4">
                             <div class="testimonial-inner-img border border-primary border-3 me-4"
@@ -405,7 +431,9 @@
                                 <p class="mb-0">Principal, Birgunj Public School</p>
                             </div>
                         </div>
-                        <p class="fs-7">"EduPulse has revolutionized how we manage our school. From automated attendance to seamless communication with parents, it has saved us countless hours of administrative work. The local support team in Birgunj is always responsive to our needs."
+                        <p class="fs-7">"EduPulse has revolutionized how we manage our school. From automated attendance
+                            to seamless communication with parents, it has saved us countless hours of administrative work.
+                            The local support team in Birgunj is always responsive to our needs."
                         </p>
                         <div class="text-center">
                             <div class="d-flex justify-content-center">
@@ -432,7 +460,9 @@
                                 <p class="mb-0">Administrator, Gandaki Boarding School</p>
                             </div>
                         </div>
-                        <p class="fs-7">"The fee management module alone has been worth the investment. No more manual calculations or chasing payments. Parents appreciate the transparency, and our accounting team has seen a 70% reduction in their workload. A must-have for schools in Birgunj!"
+                        <p class="fs-7">"The fee management module alone has been worth the investment. No more manual
+                            calculations or chasing payments. Parents appreciate the transparency, and our accounting team
+                            has seen a 70% reduction in their workload. A must-have for schools in Birgunj!"
                         </p>
                         <div class="text-center">
                             <div class="d-flex justify-content-center">
@@ -459,7 +489,10 @@
                                 <p class="mb-0">Teacher, Nepal English School</p>
                             </div>
                         </div>
-                        <p class="fs-7">"As a teacher, the academic management features have transformed how I plan lessons and track student progress. The mobile app is particularly useful for updating attendance during school trips around Birgunj. EduPulse understands the needs of Nepali educators."
+                        <p class="fs-7">"As a teacher, the academic management features have transformed how I plan
+                            lessons and track student progress. The mobile app is particularly useful for updating
+                            attendance during school trips around Birgunj. EduPulse understands the needs of Nepali
+                            educators."
                         </p>
                         <div class="text-center">
                             <div class="d-flex justify-content-center">
@@ -483,15 +516,17 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h1 class="display-5 text-white mb-4">Ready to Transform Your School?</h1>
-                    <p class="fs-4 text-white mb-4">Join the growing community of educational institutions in Birgunj that are using EduPulse to streamline their operations.</p>
+                    <p class="fs-4 text-white mb-4">Join the growing community of educational institutions in Birgunj that
+                        are using EduPulse to streamline their operations.</p>
                     <div class="d-flex justify-content-center">
                         <a href="#" class="btn btn-light rounded-pill py-3 px-5 me-3">Request Free Demo</a>
-                        <a href="#" class="btn btn-outline-light rounded-pill py-3 px-5">Contact Sales</a>
+                        <a href="" class="btn btn-outline-light rounded-pill py-3 px-5">Contact
+                            Sales</a>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- CTA End -->
-
 @endsection

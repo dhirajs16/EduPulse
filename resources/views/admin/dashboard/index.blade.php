@@ -1,188 +1,197 @@
 @extends('admin.layouts.master')
 @section('title', 'Dashboard')
 @section('content')
-    <div class="p-2">
-        <!-- Page header -->
-        <div class="page-header d-print-none">
-            <div class="container-xl">
-                <div class="row g-2 align-items-center">
-                    <div class="col">
-                        <!-- Page pre-title -->
-                        <div class="page-pretitle">
-                            Overview
+    <div class="page-content">
+
+        {{-- top 4 dashboard options --}}
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+            {{-- Profile --}}
+            <div class="col">
+                <a href="{{ route('admin.profile') }}">
+                    <div class="card radius-10 border-start border-0 border-4 border-warning">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h4 class="my-1 text-warning">{{ __('Profile') }}</h4>
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-orange text-white ms-auto"><i
+                                        class='bx bxs-group'></i>
+                                </div>
+                            </div>
                         </div>
-                        <h2 class="page-title">
-                            Vertical layout
-                        </h2>
                     </div>
-                    <!-- Page title actions -->
-                    <div class="col-auto ms-auto d-print-none">
-                        <div class="btn-list">
-                            <span class="d-none d-sm-inline">
-                                <a href="#" class="btn">
-                                    New view
+                </a>
+            </div>
+            {{-- notice --}}
+            <div class="col">
+                <a href="">
+                    <div class="card radius-10 border-start border-0 border-4 border-info">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    {{-- <p class="mb-0 text-secondary">Total Orders</p> --}}
+                                    <h4 class="my-1 text-info">{{ __('Notice') }}</h4>
+                                    {{-- <p class="mb-0 font-13">+2.5% from last week</p> --}}
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-blues text-white ms-auto"><i
+                                        class="lni lni-bubble"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {{-- assignments --}}
+            <div class="col">
+                <a href="">
+                    <div class="card radius-10 border-start border-0 border-4 border-danger">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h4 class="my-1 text-danger">{{ __('Assignments') }}</h4>
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
+                                        class='bx bxs-wallet'></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {{-- Events --}}
+            <div class="col">
+                <a href="">
+                    <div class="card radius-10 border-start border-0 border-4 border-success">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <h4 class="my-1 text-success">{{ __('Events') }}</h4>
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto"><i
+                                        class="fadeIn animated bx bx-calendar-event"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div><!--end row-->
+
+        <div class="row">
+            <div class="col-12 col-lg-8 d-flex">
+                <div class="card radius-10 w-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h6 class="mb-0">Sales Overview</h6>
+                            </div>
+                            <div class="dropdown ms-auto">
+                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#"
+                                    data-bs-toggle="dropdown"><i
+                                        class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
                                 </a>
-                            </span>
-                            <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
-                                data-bs-target="#modal-report">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 5l0 14" />
-                                    <path d="M5 12l14 0" />
-                                </svg>
-                                Create new report
-                            </a>
-                            <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal"
-                                data-bs-target="#modal-report" aria-label="Create new report">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 5l0 14" />
-                                    <path d="M5 12l14 0" />
-                                </svg>
-                            </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- Page body -->
-        <div class="page-body">
-            <div class="container-xl">
-                <div class="row row-deck row-cards">
-
-                    <div class="col-12">
-                        <div class="row row-cards">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="card card-sm">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span
-                                                    class="bg-primary text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                        <path
-                                                            d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
-                                                        <path d="M12 3v3m0 12v3" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <div class="font-weight-medium">
-                                                    132 Sales
-                                                </div>
-                                                <div class="text-secondary">
-                                                    12 waiting payments
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center ms-auto font-13 gap-2 mb-3">
+                            <span class="border px-1 rounded cursor-pointer"><i class="bx bxs-circle me-1"
+                                    style="color: #14abef"></i>Sales</span>
+                            <span class="border px-1 rounded cursor-pointer"><i class="bx bxs-circle me-1"
+                                    style="color: #ffc107"></i>Visits</span>
+                        </div>
+                        <div class="chart-container-1">
+                            <canvas id="chart1"></canvas>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-3 row-cols-xl-3 g-0 row-group text-center border-top">
+                        <div class="col">
+                            <div class="p-3">
+                                <h5 class="mb-0">24.15M</h5>
+                                <small class="mb-0">Overall Visitor <span> <i class="bx bx-up-arrow-alt align-middle"></i>
+                                        2.43%</span></small>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="card card-sm">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span
-                                                    class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                                                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                                                        <path d="M17 17h-11v-14h-2" />
-                                                        <path d="M6 5l14 1l-1 7h-13" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <div class="font-weight-medium">
-                                                    78 Orders
-                                                </div>
-                                                <div class="text-secondary">
-                                                    32 shipped
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3">
+                                <h5 class="mb-0">12:38</h5>
+                                <small class="mb-0">Visitor Duration <span> <i
+                                            class="bx bx-up-arrow-alt align-middle"></i> 12.65%</span></small>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="card card-sm">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span
-                                                    class="bg-twitter text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                        <path
-                                                            d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013z" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <div class="font-weight-medium">
-                                                    623 Shares
-                                                </div>
-                                                <div class="text-secondary">
-                                                    16 today
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="card card-sm">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span
-                                                    class="bg-facebook text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                        <path
-                                                            d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <div class="font-weight-medium">
-                                                    132 Likes
-                                                </div>
-                                                <div class="text-secondary">
-                                                    21 today
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col">
+                            <div class="p-3">
+                                <h5 class="mb-0">639.82</h5>
+                                <small class="mb-0">Pages/Visit <span> <i class="bx bx-up-arrow-alt align-middle"></i>
+                                        5.62%</span></small>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
+            <div class="col-12 col-lg-4 d-flex">
+                <div class="card radius-10 w-100">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <h6 class="mb-0">{{ __('Latest Event') }}</h6>
+                            </div>
+                            <div class="dropdown ms-auto">
+                                <a class="dropdown-toggle dropdown-toggle-nocaret" href="#"
+                                    data-bs-toggle="dropdown"><i
+                                        class='bx bx-dots-horizontal-rounded font-22 text-option'></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="javascript:;">Action</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Another action</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container-2">
+                            <canvas id="chart2"></canvas>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li
+                            class="list-group-item d-flex bg-transparent justify-content-between align-items-center border-top">
+                            Jeans <span class="badge bg-success rounded-pill">25</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            T-Shirts <span class="badge bg-danger rounded-pill">10</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Shoes <span class="badge bg-primary rounded-pill">65</span>
+                        </li>
+                        <li class="list-group-item d-flex bg-transparent justify-content-between align-items-center">
+                            Lingerie <span class="badge bg-warning text-dark rounded-pill">14</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--end row-->
 
     </div>
 @endsection

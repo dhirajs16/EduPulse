@@ -14,7 +14,8 @@
             </nav>
         </div>
         <div class="ms-auto">
-            <a href="{{ route('admin.time-tables.create') }}" class="btn btn-primary">Add Timetable Entry</a>
+            <a href="{{ route('admin.time-tables.create') }}" class="btn btn-primary radius-30"
+                    style="background-color: #244960;"><i class="bx bxs-plus-square"></i>{{ __('Add Timetable Entry') }}</a>
         </div>
     </div>
     <!--end breadcrumb-->
@@ -64,8 +65,8 @@
                 </div>
 
                 <div class="col-md-2 d-flex gap-2">
-                    <button id="searchButton" class="btn btn-primary flex-fill">Search</button>
-                    <button id="resetButton" class="btn btn-secondary flex-fill">Reset</button>
+                    <button id="searchButton" class="btn btn-primary flex-fill radius-30" style="background-color: #244960;">Search</button>
+                    <button id="resetButton" class="btn btn-secondary flex-fill radius-30">Reset</button>
                 </div>
 
             </div>

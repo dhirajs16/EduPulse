@@ -28,7 +28,7 @@ class StoreStudentRequest extends FormRequest
             'guardian_name' => 'nullable|string|max:255',
             'guardian_contact' => 'nullable|string|max:50',
             'relationship_with_guardian' => 'nullable|string|max:100',
-            'user_id' => 'required|exists:users,id',
+            'user_id' => ['required', 'unique:students,user_id'],
             'grade_id' => 'required|exists:grades,id',
         ];
     }

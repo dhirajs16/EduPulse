@@ -6,32 +6,32 @@ use App\Repositories\Interfaces\TeacherRepositoryInterface;
 
 class TeacherService
 {
-    public function __construct(protected TeacherRepositoryInterface $teacherRepo)
+    public function __construct(protected TeacherRepositoryInterface $repo)
     {
     }
 
     public function list()
     {
-        return $this->teacherRepo->all();
+        return $this->repo->all();
     }
 
     public function find($id)
     {
-        return $this->teacherRepo->find($id);
+        return $this->repo->find($id);
     }
 
     public function store(array $data)
     {
-        return $this->teacherRepo->create($data);
+        return $this->repo->create($data);
     }
 
     public function update($id, array $data)
     {
-        return $this->teacherRepo->update($id, $data);
+        return $this->repo->update($id, $data);
     }
 
     public function delete($id)
     {
-        return $this->teacherRepo->delete($id);
+        return $this->repo->delete($id);
     }
 }

@@ -16,7 +16,7 @@
                 </nav>
             </div>
             <div class="ms-auto">
-                <a href="" class="btn btn-primary">Print TimeTable</a>
+                {{-- <a href="" class="btn btn-primary radius-30" style="background-color: #244960;">Print TimeTable</a> --}}
             </div>
         </div>
         <!--end breadcrumb-->

@@ -30,6 +30,7 @@ class TeacherSeeder extends Seeder
                 'postal_code' => '44600',
                 'salary' => 50000.00,
                 'joining_date' => '2010-08-01',
+                
                 'qualification' => 'M.Ed.',
                 'user_id' => 6,
                 'created_at' => now(),
@@ -52,6 +53,7 @@ class TeacherSeeder extends Seeder
                 'postal_code' => '33700',
                 'salary' => 52000.00,
                 'joining_date' => '2012-06-15',
+
                 'qualification' => 'B.Ed.',
                 'user_id' => 7,
                 'created_at' => now(),
@@ -74,6 +76,7 @@ class TeacherSeeder extends Seeder
                 'postal_code' => '56600',
                 'salary' => 54000.00,
                 'joining_date' => '2008-09-01',
+
                 'qualification' => 'M.Sc.',
                 'user_id' => 8,
                 'created_at' => now(),
@@ -97,6 +100,7 @@ class TeacherSeeder extends Seeder
                 'salary' => 51000.00,
                 'joining_date' => '2011-05-20',
                 'qualification' => 'Ph.D.',
+
                 'user_id' => 9,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -119,6 +123,7 @@ class TeacherSeeder extends Seeder
                 'salary' => 53000.00,
                 'joining_date' => '2009-11-15',
                 'qualification' => 'M.A Sociology',
+
                 'user_id' => 10,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -141,6 +146,7 @@ class TeacherSeeder extends Seeder
                 'salary' => 48000.00,
                 'joining_date' => '2013-03-10',
                 'qualification' => 'B.Ed.',
+
                 'user_id' => 11,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -163,6 +169,7 @@ class TeacherSeeder extends Seeder
                 'salary' => 49000.00,
                 'joining_date' => '2014-01-25',
                 'qualification' => 'M.A History',
+
                 'user_id' => 12,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -185,6 +192,7 @@ class TeacherSeeder extends Seeder
                 'salary' => 47000.00,
                 'joining_date' => '2015-10-05',
                 'qualification' => 'M.Sc. Physics',
+
                 'user_id' => 13,
                 'created_at' => now(),
                 'updated_at' => now(),

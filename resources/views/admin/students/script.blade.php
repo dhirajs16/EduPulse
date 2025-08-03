@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for(let i=1; i <= pageCount; i++) {
             const li = document.createElement('li');
             li.className = (i === currentPage) ? 'active page-item' : 'page-item';
-            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.innerHTML = `<a class="page-link" href="#" >${i}</a>`;
             li.addEventListener('click', e => {
                 e.preventDefault();
                 currentPage = i;
