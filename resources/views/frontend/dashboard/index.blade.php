@@ -43,22 +43,27 @@
             </div>
 
             {{-- assignments --}}
-            <div class="col">
-                <a href="">
-                    <div class="card radius-10 border-start border-0 border-4 border-danger">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <h4 class="my-1 text-danger">{{ __('Assignments') }}</h4>
-                                </div>
-                                <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
-                                        class='bx bxs-wallet'></i>
+            {{-- @dd(auth()->guard('web')->user()->student->grade->id) --}}
+            @if (auth()->guard('web')->user()->user_type == 'student')
+                <div class="col">
+                    <a href="{{ route('assignments.show', auth()->guard('web')->user()->student->grade->id) }}">
+
+                        <div class="card radius-10 border-start border-0 border-4 border-danger">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h4 class="my-1 text-danger">{{ __('Assignments') }}</h4>
+                                    </div>
+                                    <div class="widgets-icons-2 rounded-circle bg-gradient-burning text-white ms-auto"><i
+                                            class='bx bxs-wallet'></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            @elseif(auth()->guard('web')->user()->user_type == 'teacher')
+            @endif
 
             {{-- Events --}}
             <div class="col">

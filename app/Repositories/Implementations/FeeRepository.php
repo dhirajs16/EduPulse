@@ -9,13 +9,13 @@ class FeeRepository implements FeeRepositoryInterface
 {
     public function all()
     {
-        // Eager load related feeType and grade for efficient queries
-        return Fee::with(['feeType', 'grade'])->get();
+        // Eager load related grade for efficient queries
+        return Fee::with(['grade'])->get();
     }
 
     public function find($id)
     {
-        return Fee::with(['feeType', 'grade'])->findOrFail($id);
+        return Fee::with(['grade'])->findOrFail($id);
     }
 
     public function create(array $data)

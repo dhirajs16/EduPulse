@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\TimeTableController;
+use App\Http\Controllers\Frontend\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,6 +34,8 @@ Route::middleware(['auth', 'verified'])
 
     // timetable routes
     Route::get('time-tables/{grade}', [TimeTableController::class, 'show'])->name('time-tables.show');
+    // transaction routes
+    Route::get('transactions/{student}', [TransactionController::class, 'show'])->name('transactions.show');
 });
 
 

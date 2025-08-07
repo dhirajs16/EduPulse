@@ -14,12 +14,12 @@
                             <i class="bx bx-home-alt"></i>
                         </a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $student->name }}'s Transactions</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
-            <a href="{{ route('admin.transactions.create') }}" class="btn btn-primary radius-30"
+            <a href="{{ route('admin.transactions.create', $student->id) }}" class="btn btn-primary radius-30"
                     style="background-color: #244960;"><i class="bx bxs-plus-square"></i>{{ __('Add New Transaction') }}</a>
         </div>
     </div>
@@ -30,7 +30,7 @@
             {{-- Search inputs --}}
             <div class="row align-items-end mb-3 g-3">
 
-                <div class="col-md-3">
+                {{-- <div class="col-md-3">
                     <select id="studentSearch" class="form-select">
                         <option value="">Filter by Student</option>
                         @foreach ($students as $student)
@@ -39,13 +39,13 @@
                             </option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
 
                 <div class="col-md-3">
                     <select id="feeSearch" class="form-select">
                         <option value="">Filter by Fee</option>
                         @foreach ($fees as $fee)
-                            <option value="{{ $fee->id }}">{{ $fee->feeType->name ?? 'N/A' }} - {{ $fee->grade->name ?? 'N/A' }} ({{ $fee->year }}/{{ $fee->month }})</option>
+                            <option value="{{ $fee->id }}">{{ $fee->name ?? 'N/A' }} - {{ $fee->grade->name ?? 'N/A' }} ({{ $fee->year }}/{{ $fee->month }})</option>
                         @endforeach
                     </select>
                 </div>
@@ -68,11 +68,12 @@
                     return [
                         "id" => $tx->id,
                         "student_id" => $tx->student_id,
-                        "student_name" => strtolower($studentName),
+                        "student_name" =>$studentName,
                         "fee_id" => $tx->fee_id,
-                        "fee_label" => $tx->fee->feeType->name ?? 'N/A' . ' - ' . ($tx->fee->grade->name ?? 'N/A') . ' (' . $tx->fee->year.'/'.$tx->fee->month . ')',
+                        "fee_label" => $tx->fee->name ?? 'N/A' . ' - ' . ($tx->fee->grade->name ?? 'N/A') . ' (' . $tx->fee->year.'/'.$tx->fee->month . ')',
+                        "actual_charges" => $tx->fee->amount,
                         "amount_paid" => $tx->amount_paid,
-                        "payment_date" => $tx->payment_date->format('Y-m-d'),
+                        "payment_date" => \Carbon\Carbon::parse($tx->payment_date)->format('Y-m-d'),
                         "notes" => $tx->notes ?? '',
                     ];
                 })->toJson() !!}'
@@ -83,12 +84,13 @@
                 <table class="table table-hover mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th>ID</th>
                             <th>Student</th>
                             <th>Fee</th>
+                            <th>Actual Charge</th>
                             <th>Amount Paid</th>
                             <th>Payment Date</th>
-                            <th>Notes</th>
+                            <th>Note</th>
+                            <th>Status</th>
                             <th style="width: 140px;">Actions</th>
                         </tr>
                     </thead>

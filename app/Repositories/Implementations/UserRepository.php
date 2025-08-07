@@ -9,7 +9,7 @@ class UserRepository implements UserRepositoryInterface
 {
     public function all()
     {
-        return User::all();
+        return User::orderBy('id', 'desc')->get();
     }
 
     public function find(int $id)

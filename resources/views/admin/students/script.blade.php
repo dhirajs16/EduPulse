@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Input references
     const nameSearch = document.getElementById('nameSearch');
-    // const fatherNameSearch = document.getElementById('fatherNameSearch');
-    // const motherNameSearch = document.getElementById('motherNameSearch');
     const emailSearch = document.getElementById('emailSearch');
     const guardianNameSearch = document.getElementById('guardianNameSearch');
     const gradeSearch = document.getElementById('gradeSearch');
@@ -49,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tableBody.innerHTML = paginatedItems.map(item => `
             <tr>
-                <td>${item.id}</td>
+                <td hidden>${item.id}</td>
                 <td>
                     ${item.avatar
                         ? `<img src="${item.avatar}" alt="avatar" width="40" height="40" class="rounded-circle">`
-                        : 'N/A'}
+                        : 'avatar'}
                 </td>
                 <td>${truncateText(item.full_name)}</td>
                 <td>${truncateText(item.email)}</td>
@@ -61,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${truncateText(item.grade)}</td>
                 <td>${truncateText(item.guardian_name)}</td>
                 <td>
-                    <div class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3"><i class="bx bxs-circle me-1"></i>N/A</div>
+                    <a href="{{ url('admin/transactions') }}/${item.id}/" class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3"><i class="bx bxs-circle me-1"></i>Show</a>
                 </td>
                 <td>
                     <a href="{{ url('admin/students') }}/${item.id}/edit" class="btn btn-sm me-1" title="Edit"><i class='bx bxs-edit'></i></a>

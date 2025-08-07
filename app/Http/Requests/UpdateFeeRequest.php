@@ -17,21 +17,17 @@ class UpdateFeeRequest extends FormRequest
         $feeId = $this->route('fee'); // assumes route model binding or id parameter named 'fee'
 
         return [
-            'fee_type_id' => 'required|exists:fee_types,id',
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('fees', 'name')->ignore($this->route('fee') ?? $this->fee),
+            ],
+            'description' => 'nullable|string|max:1000',
             'grade_id' => 'required|exists:grades,id',
             'amount' => 'required|numeric|min:0',
-            'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 5),
+            'year' => 'required|digits:4|integer|min:1900|max:' . (date('Y') + 2),
             'month' => 'required|integer|min:1|max:12',
-            // Unique constraint ignoring current record for combination
-            'fee_type_id' => [
-                'required',
-                'exists:fee_types,id',
-                Rule::unique('fees')->where(function ($query) {
-                    return $query->where('grade_id', $this->input('grade_id'))
-                                 ->where('year', $this->input('year'))
-                                 ->where('month', $this->input('month'));
-                })->ignore($feeId),
-            ],
             'grade_id' => 'required|exists:grades,id',
         ];
     }

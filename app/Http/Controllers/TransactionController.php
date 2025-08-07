@@ -6,6 +6,7 @@ use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
 use App\Models\Student;
 use App\Models\Fee;
+use App\Models\Transaction;
 use App\Services\NotificationService;
 use App\Services\TransactionService;
 
@@ -15,53 +16,52 @@ class TransactionController extends Controller
     {
     }
 
-    public function index()
+    public function index(Student $student)
     {
-        $transactions = $this->transactionService->list();
+        $transactions = $this->transactionService->list($student);
 
-        // To filter/search in Blade, pass students and fees for select filters if desired
-        $students = Student::all();
-        $fees = Fee::all();
+        $fees = Fee::where('grade_id', $student->grade_id)->orderBy('id', 'desc')->get();
 
-        return view('admin.transactions.index', compact('transactions', 'students', 'fees'));
+        return view('admin.transactions.index', compact('transactions', 'student', 'fees'));
     }
 
-    public function create()
-    {
-        $students = Student::all();
-        $fees = Fee::all();
 
-        return view('admin.transactions.create', compact('students', 'fees'));
+
+
+    public function create(Student $student)
+    {
+        $fees = Fee::where('grade_id', $student->grade_id)->get();
+
+        return view('admin.transactions.create', compact('student', 'fees'));
     }
 
-    public function store(StoreTransactionRequest $request)
+    public function store(StoreTransactionRequest $request, Student $student)
     {
         $this->transactionService->store($request->validated());
 
         NotificationService::CREATED('Transaction created successfully.');
-        return redirect()->route('admin.transactions.index');
+        return redirect()->route('admin.transactions.index', $student->id);
     }
 
-    public function edit($id)
+    public function edit(Student $student, Transaction $transaction)
     {
-        $transaction = $this->transactionService->find($id);
-        $students = Student::all();
-        $fees = Fee::all();
+        $transaction = $this->transactionService->find($transaction->id);
+        $fees = Fee::where('grade_id', $student->grade_id)->get();
 
-        return view('admin.transactions.edit', compact('transaction', 'students', 'fees'));
+        return view('admin.transactions.edit', compact('transaction', 'student', 'fees'));
     }
 
-    public function update(UpdateTransactionRequest $request, $id)
+    public function update(UpdateTransactionRequest $request, Student $student, Transaction $transaction)
     {
-        $this->transactionService->update($id, $request->validated());
+        $this->transactionService->update($transaction->id, $request->validated());
         NotificationService::UPDATED('Transaction updated successfully.');
-        return redirect()->route('admin.transactions.index');
+        return redirect()->route('admin.transactions.index', $student->id);
     }
 
-    public function destroy($id)
+    public function destroy(Student $student, Transaction $transaction)
     {
-        $this->transactionService->delete($id);
+        $this->transactionService->delete($transaction->id);
         NotificationService::DELETED('Transaction deleted successfully.');
-        return redirect()->route('admin.transactions.index');
+        return redirect()->route('admin.transactions.index', $student->id);
     }
 }

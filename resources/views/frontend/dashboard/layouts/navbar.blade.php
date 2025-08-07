@@ -61,6 +61,14 @@
                     <div class="menu-title">Assignments</div>
                 </a>
             </li>
+            {{-- show fee details --}}
+            <li>
+                <a href="{{ route('transactions.show', Auth::guard('web')->user()->student->id) }}">
+                    <div class="parent-icon"><i class='bx bx-cookie'></i>
+                    </div>
+                    <div class="menu-title">Fee Trasactions</div>
+                </a>
+            </li>
         @endif
 
         {{--  exclusive nav-links --}}

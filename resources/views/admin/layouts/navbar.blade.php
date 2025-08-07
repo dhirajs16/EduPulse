@@ -83,6 +83,13 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('admin.grade_teachers.index') }}">
+                    <div class="parent-icon"><i class='bx bx-category'></i>
+                    </div>
+                    <div class="menu-title">Subject Teachers</div>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('admin.time-tables.index') }}">
                     <div class="parent-icon"><i class='bx bx-category'></i>
                     </div>
@@ -94,15 +101,10 @@
 
         {{-- accountant exclusive nav links --}}
         @if (auth()->guard('admin')->user() &&
-                auth()->guard('admin')->user()->hasAnyRole(['super admin', 'accountant']))
+                (auth()->guard('admin')->user()->hasAnyRole(['super admin', 'accountant']) ||
+                    auth()->guard('admin')->user()->hasAnyPermission(['manage accounts'])))
             <li class="menu-label">{{ __('Fee Management') }}</li>
-            <li>
-                <a href="{{ route('admin.fee-types.index') }}">
-                    <div class="parent-icon"><i class='bx bx-category'></i>
-                    </div>
-                    <div class="menu-title">Fee Types</div>
-                </a>
-            </li>
+
             <li>
                 <a href="{{ route('admin.fees.index') }}">
                     <div class="parent-icon"><i class='bx bx-category'></i>
@@ -110,17 +112,33 @@
                     <div class="menu-title">Fees</div>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('admin.transactions.index') }}">
                     <div class="parent-icon"><i class='bx bx-category'></i>
                     </div>
                     <div class="menu-title">Transactions</div>
                 </a>
+            </li> --}}
+        @endif
+
+
+
+
+        @if (auth()->guard('admin')->user() &&
+                (auth()->guard('admin')->user()->hasAnyRole(['super admin', 'librarian']) ||
+                    auth()->guard('admin')->user()->hasAnyPermission(['manage library'])))
+            <li class="menu-label">{{ __('Library Management') }}</li>
+            <li>
+                <a href="{{ route('admin.books.index') }}">
+                    <div class="parent-icon"><i class='bx bx-book'></i>
+                    </div>
+                    <div class="menu-title">Books</div>
+                </a>
             </li>
         @endif
 
 
-            <li class="menu-label">{{ __('Sign Out') }}</li>
+        <li class="menu-label">{{ __('Sign Out') }}</li>
         <li>
             <div class="parent-icon">
 

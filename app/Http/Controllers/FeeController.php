@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFeeRequest;
 use App\Http\Requests\UpdateFeeRequest;
-use App\Models\FeeType;
 use App\Models\Grade;
 use App\Services\FeeService;
 use App\Services\NotificationService;
@@ -18,16 +17,14 @@ class FeeController extends Controller
     public function index()
     {
         $fees = $this->feeService->list();
-        $feeTypes = FeeType::all();
         $grades = Grade::all();
-        return view('admin.fees.index', compact('fees', 'feeTypes', 'grades'));
+        return view('admin.fees.index', compact('fees', 'grades'));
     }
 
     public function create()
     {
-        $feeTypes = FeeType::all();
         $grades = Grade::all();
-        return view('admin.fees.create', compact('feeTypes', 'grades'));
+        return view('admin.fees.create', compact('grades'));
     }
 
     public function store(StoreFeeRequest $request)
@@ -41,11 +38,9 @@ class FeeController extends Controller
     public function edit($id)
     {
         $fee = $this->feeService->find($id);
-        $feeTypes = FeeType::all();
         $grades = Grade::all();
 
-
-        return view('admin.fees.edit', compact('fee', 'feeTypes', 'grades'));
+        return view('admin.fees.edit', compact('fee', 'grades'));
     }
 
     public function update(UpdateFeeRequest $request, $id)

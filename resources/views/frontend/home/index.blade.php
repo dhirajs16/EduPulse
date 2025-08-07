@@ -192,14 +192,14 @@
                         <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-users fa-5x "
                                 style="color: #f4a02a"></i></div>
                         <div class="service-content">
-                            <h4 class="mb-4">Parent Portal</h4>
+                            <h4 class="mb-4">Student Portal</h4>
                             <p class="mb-4">Real-time updates on student progress, attendance, and school events
                             </p>
                             <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Explore</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
+                {{-- <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item text-center rounded p-4">
                         <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-laptop fa-5x "
                                 style="color: #f4a02a"></i></div>
@@ -210,7 +210,7 @@
                             <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Explore</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item text-center rounded p-4">
                         <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i

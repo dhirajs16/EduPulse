@@ -4,7 +4,7 @@ namespace App\Repositories\Interfaces;
 
 interface TransactionRepositoryInterface
 {
-    public function all();
+    public function all($student);
 
     public function find($id);
 

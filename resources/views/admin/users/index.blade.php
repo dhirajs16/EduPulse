@@ -49,7 +49,7 @@
                         <tr>
                             <th>Email</th>
                             <th>User Type</th>
-                            <th>Email Verified</th>
+                            {{-- <th>Email Verified</th> --}}
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <tr>
                 <td>${item.email}</td>
                 <td>${item.user_type.charAt(0).toUpperCase() + item.user_type.slice(1)}</td>
-                <td>${item.email_verified_at ? new Date(item.email_verified_at).toLocaleDateString() : '-'}</td>
+                <td hidden>${item.email_verified_at ? new Date(item.email_verified_at).toLocaleDateString() : '-'}</td>
                 <td>
                     <a href="{{ url('admin/users') }}/${item.id}/edit" class="btn btn-sm" title="Edit"><i class="bx bxs-edit"></i></a>
                     <form method="POST" action="{{ url('admin/users') }}/${item.id}" style="display:inline;" onsubmit="return confirm('Are you sure?');">

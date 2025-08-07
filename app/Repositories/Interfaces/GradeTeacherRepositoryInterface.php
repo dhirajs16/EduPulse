@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interfaces;
 
-interface FeeTypeRepositoryInterface
+interface GradeTeacherRepositoryInterface
 {
     public function all();
 

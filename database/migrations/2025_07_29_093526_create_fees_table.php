@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('fees', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->decimal('amount', 10, 2);
             $table->year('year');
             $table->unsignedTinyInteger('month')->check('month >= 1 AND month <= 12');
 
-            $table->foreignId('fee_type_id')->constrained('fee_types')->onDelete('cascade');
             $table->foreignId('grade_id')->constrained('grades')->onDelete('cascade');
-            
-            $table->unique(['fee_type_id', 'grade_id', 'year', 'month'], 'unique_fee_per_grade_per_month');
+
+            $table->unique(['name', 'grade_id', 'year', 'month'], 'unique_fee_per_grade_per_month');
         });
     }
 

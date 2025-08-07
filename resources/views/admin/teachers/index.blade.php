@@ -68,7 +68,7 @@
                         return [
                             'id' => $teacher->id,
                             'name' => $teacher->name,
-                            'email' => $teacher->personal_email,
+                            'email' => $teacher->user->email,
                             'subjects' => $teacher->subjects->pluck('name')->toArray(),
                             'grades' => $teacher->grades->pluck('name')->toArray(),
                             'gender' => $teacher->gender,

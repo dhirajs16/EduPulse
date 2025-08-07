@@ -41,7 +41,7 @@
                         $lunchSlot = (object) [
                             'start_time' => $lunchStart,
                             'end_time' => $lunchEnd,
-                            'is_lunch' => true
+                            'is_lunch' => true,
                         ];
 
                         // Get unique time slots
@@ -71,18 +71,21 @@
                             <tbody>
                                 @foreach ($timeSlots as $slot)
                                     <tr>
-                                        <td>
+                                        <td class="py-3">
                                             {{ $slot->start_time->format('h:i A') }} -
                                             {{ $slot->end_time->format('h:i A') }}
                                         </td>
+                                        @if (isset($slot->is_lunch) && $slot->is_lunch)
+                                            <td colspan="6">
 
-                                        @foreach (['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as $day)
-                                            <td>
-                                                @if (isset($slot->is_lunch) && $slot->is_lunch)
-                                                    <div class="timetable-entry">
-                                                        <p class="text-secondary">LUNCH BREAK</p class="text-secondary">
-                                                    </div>
-                                                @else
+                                                <div class="timetable-entry py-2">
+                                                    <strong class="">LUNCH BREAK</strong class="text-secondary">
+                                                </div>
+                                            </td>
+                                        @else
+                                            @foreach (['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as $day)
+                                                <td>
+
                                                     @php
                                                         $entry = $groupedByDay
                                                             ->get($day, collect())
@@ -95,12 +98,12 @@
                                                     @if ($entry)
                                                         <div class="timetable-entry">
                                                             <strong>{{ $entry->subject->name }}</strong>
-                                                            <div>{{ $entry->teacher->name }}</div>
+                                                            <div class="text-secondary">{{ $entry->teacher->name }}</div>
                                                         </div>
                                                     @endif
-                                                @endif
-                                            </td>
-                                        @endforeach
+                                                </td>
+                                            @endforeach
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>

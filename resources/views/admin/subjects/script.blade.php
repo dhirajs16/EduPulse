@@ -19,7 +19,7 @@
         const tableBody = document.querySelector('table tbody');
 
         const paginationContainer = document.createElement('ul');
-        paginationContainer.className = 'pagination mt-3 justify-content-center';
+        paginationContainer.className = 'pagination mt-3 justify-content-start';
         tableBody.parentElement.insertAdjacentElement('afterend', paginationContainer);
 
         const itemsPerPage = 8;

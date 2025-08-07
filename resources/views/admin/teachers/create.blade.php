@@ -27,39 +27,52 @@
 
                 <div class="form-body mt-4">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 row">
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="avatar" class="form-label">Avatar</label>
                                 <input type="file" name="avatar" id="avatar" class="form-control @error('avatar') is-invalid @enderror">
                                 @error('avatar') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="prefix" class="form-label">Prefix <span class="text-danger">*</span></label>
-                                <input type="text" name="prefix" id="prefix" class="form-control @error('prefix') is-invalid @enderror" value="{{ old('prefix') }}" required>
+                                <input type="text" name="prefix" id="prefix" class="form-control @error('prefix') is-invalid @enderror" value="{{ old('prefix') }}" required placeholder="Mr., Ms., Mrs.,">
                                 @error('prefix') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="first_name" class="form-label">First Name <span class="text-danger">*</span></label>
                                 <input type="text" name="first_name" id="first_name" class="form-control @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}" required>
                                 @error('first_name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="middle_name" class="form-label">Middle Name</label>
                                 <input type="text" name="middle_name" id="middle_name" class="form-control @error('middle_name') is-invalid @enderror" value="{{ old('middle_name') }}">
                                 @error('middle_name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
                                 <input type="text" name="last_name" id="last_name" class="form-control @error('last_name') is-invalid @enderror" value="{{ old('last_name') }}" required>
                                 @error('last_name') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
+                                <label for="user_id" class="form-label">User (System Account) <span class="text-danger">*</span></label>
+                                <select name="user_id" id="user_id" class="form-select @error('user_id') is-invalid @enderror" required>
+                                    <option value="">Select User</option>
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
+                                            {{ $user->email }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('user_id') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+
+                            <div class="mb-3 col-lg-6">
                                 <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
                                 <select name="gender" id="gender" class="form-select @error('gender') is-invalid @enderror" required>
                                     <option value="">Select Gender</option>
@@ -70,91 +83,79 @@
                                 @error('gender') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="date_of_birth" class="form-label">Date of Birth</label>
                                 <input type="date" name="date_of_birth" id="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror" value="{{ old('date_of_birth') }}">
                                 @error('date_of_birth') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="nid" class="form-label">NID</label>
                                 <input type="text" name="nid" id="nid" class="form-control @error('nid') is-invalid @enderror" value="{{ old('nid') }}">
                                 @error('nid') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="contact" class="form-label">Contact</label>
                                 <input type="text" name="contact" id="contact" class="form-control @error('contact') is-invalid @enderror" value="{{ old('contact') }}">
                                 @error('contact') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="personal_email" class="form-label">Personal Email</label>
                                 <input type="email" name="personal_email" id="personal_email" class="form-control @error('personal_email') is-invalid @enderror" value="{{ old('personal_email') }}">
                                 @error('personal_email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="address" class="form-label">Address</label>
                                 <textarea name="address" id="address" class="form-control @error('address') is-invalid @enderror">{{ old('address') }}</textarea>
                                 @error('address') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="city" class="form-label">City</label>
                                 <input type="text" name="city" id="city" class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}">
                                 @error('city') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="country" class="form-label">Country</label>
                                 <input type="text" name="country" id="country" class="form-control @error('country') is-invalid @enderror" value="{{ old('country') }}">
                                 @error('country') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="postal_code" class="form-label">Postal Code</label>
                                 <input type="text" name="postal_code" id="postal_code" class="form-control @error('postal_code') is-invalid @enderror" value="{{ old('postal_code') }}">
                                 @error('postal_code') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="salary" class="form-label">Salary</label>
                                 <input type="number" step="0.01" name="salary" id="salary" class="form-control @error('salary') is-invalid @enderror" value="{{ old('salary') }}">
                                 @error('salary') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="joining_date" class="form-label">Joining Date</label>
                                 <input type="date" name="joining_date" id="joining_date" class="form-control @error('joining_date') is-invalid @enderror" value="{{ old('joining_date') }}">
                                 @error('joining_date') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3 col-lg-6">
                                 <label for="qualification" class="form-label">Qualification</label>
                                 <input type="text" name="qualification" id="qualification" class="form-control @error('qualification') is-invalid @enderror" value="{{ old('qualification') }}">
                                 @error('qualification') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label for="user_id" class="form-label">User (System Account) <span class="text-danger">*</span></label>
-                                <select name="user_id" id="user_id" class="form-select @error('user_id') is-invalid @enderror" required>
-                                    <option value="">Select User</option>
-                                    @foreach(App\Models\User::all() as $user)
-                                        <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                                            {{ $user->name }} ({{ $user->email }})
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('user_id') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
+
 
                             {{-- Grade - Subject assignments --}}
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label class="form-label">Assign Subjects to Grades</label>
                                 <small class="form-text text-muted">Select grade and subject pairs this teacher teaches.</small>
                                 <div id="grade-subject-pairs">
-                                    {{-- Will dynamically add via JS or just static 3 rows to select initially --}}
                                     <div class="row mb-2 grade-subject-row">
                                         <div class="col">
                                             <select name="grade_subjects[0][grade_id]" class="form-select">
@@ -178,7 +179,7 @@
                                     </div>
                                 </div>
                                 <button type="button" id="addPair" class="btn btn-sm btn-secondary">Add Grade-Subject Pair</button>
-                            </div>
+                            </div> --}}
 
                             {{-- <div class="mb-3">
                                 <label for="status" class="form-label">Status <span class="text-danger">*</span></label>

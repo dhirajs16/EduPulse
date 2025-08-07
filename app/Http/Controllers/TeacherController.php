@@ -7,8 +7,10 @@ use App\Http\Requests\UpdateTeacherRequest;
 use App\Models\Grade;
 use App\Models\GradeTeacher;
 use App\Models\Subject;
+use App\Models\User;
 use App\Services\NotificationService;
 use App\Services\TeacherService;
+use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
@@ -23,9 +25,10 @@ class TeacherController extends Controller
 
     public function create()
     {
+        $users = User::where('user_type', 'teacher')->orderBy('id', 'desc')->get();
         $grades = Grade::all();
         $subjects = Subject::all();
-        return view('admin.teachers.create', compact('grades', 'subjects'));
+        return view('admin.teachers.create', compact('grades', 'subjects', 'users'));
     }
 
     public function store(StoreTeacherRequest $request)
@@ -55,6 +58,8 @@ class TeacherController extends Controller
 
     public function update(UpdateTeacherRequest $request, $id)
     {
+        // dd($request->all());
+
         $validated = $request->validated();
 
         $this->teacherService->update($id, $validated);

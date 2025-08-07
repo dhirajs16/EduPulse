@@ -10,8 +10,10 @@ use App\Http\Controllers\Admin\RoleUserController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SystemSettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\FeeController;
-use App\Http\Controllers\FeeTypeController;
+use App\Http\Controllers\GradeTeacherController;
+use App\Http\Controllers\RequestDemoController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
@@ -81,6 +83,9 @@ Route::middleware('auth:admin')
             // Subject management routes
             Route::resource('subjects', SubjectController::class);
 
+            // Grade Teacher management routes
+            Route::resource('grade_teachers', GradeTeacherController::class);
+
 
             // Student management routes
             Route::resource('students', StudentController::class);
@@ -91,20 +96,37 @@ Route::middleware('auth:admin')
 
             // Teacher management routes
             Route::resource('time-tables', TimeTableController::class);
+
+            // request demo management routes
+            Route::resource('request_demos', RequestDemoController::class)->only(['index', 'show']);
+            Route::put('request_demos/{id}/update-status', [RequestDemoController::class, 'updateStatus'])->name('request_demos.updateStatus');
         });
 
 
         // Routes accessible by accountant role & super admin role
-        Route::middleware(['role:accountant|super admin'])->group(function () {
+        Route::middleware(['role_or_permission:manage accounts|super admin'])->group(function () {
 
 
-            // Fee Type management routes
-            Route::resource('fee-types', FeeTypeController::class);
+
 
             // Fee management routes
             Route::resource('fees', FeeController::class);
 
             // Transaction management routes
-            Route::resource('transactions', TransactionController::class);
+            Route::get('transactions/{student}', [TransactionController::class, 'index'])->name('transactions.index');
+            Route::get('transactions/{student}/create', [TransactionController::class, 'create'])->name('transactions.create');
+            Route::post('transactions/{student}/store', [TransactionController::class, 'store'])->name('transactions.store');
+            Route::get('transactions/{student}/show', [TransactionController::class, 'show'])->name('transactions.show');
+            Route::get('transactions/{student}/edit/{transaction}', [TransactionController::class, 'edit'])->name('transactions.edit');
+            Route::put('transactions/{student}/{transaction}/update', [TransactionController::class, 'update'])->name('transactions.update');
+            Route::delete('transactions/{student}/{transaction}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+
+            // Route::resource('transactions', TransactionController::class)->except(['show']);
+        });
+
+        // Routes accessible by librarian role & super admin role
+        Route::middleware(['role_or_permission:manage library|super admin'])->group(function () {
+            // Book management routes
+            Route::resource('books', BookController::class);
         });
     });

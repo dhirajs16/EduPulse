@@ -9,7 +9,7 @@ class StudentRepository implements StudentRepositoryInterface
 {
     public function all()
     {
-        return Student::with(['user', 'grade'])->orderBy('id')->get();
+        return Student::with(['user', 'grade'])->orderBy('id', 'desc')->get();
     }
 
     public function find($id)

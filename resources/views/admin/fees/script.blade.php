@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Failed to parse fees JSON:', e);
     }
 
-    const feeTypeSearch = document.getElementById('feeTypeSearch');
+    const nameSearch = document.getElementById('nameSearch');
     const gradeSearch = document.getElementById('gradeSearch');
     const yearSearch = document.getElementById('yearSearch');
     const monthSearch = document.getElementById('monthSearch');
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tableBody.innerHTML = paginatedItems.map(item => `
             <tr>
-                <td>${item.id}</td>
-                <td>${item.fee_type_name}</td>
+                <td>${item.name}</td>
+                <td>${item.description}</td>
                 <td>${item.grade_name}</td>
                 <td>${formatAmount(item.amount)}</td>
                 <td>${item.year}</td>
@@ -108,13 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterItems() {
-        const feeTypeTerm = feeTypeSearch.value.trim().toLowerCase();
+        const nameTerm = nameSearch.value.trim().toLowerCase();
         const gradeTerm = gradeSearch.value.trim().toLowerCase();
         const yearTerm = yearSearch.value.trim();
         const monthTerm = monthSearch.value.trim();
 
         filteredItems = allItems.filter(item =>
-            (!feeTypeTerm || item.fee_type === feeTypeTerm) &&
+            (!nameTerm || item.name === nameTerm) &&
             (!gradeTerm || item.grade === gradeTerm) &&
             (!yearTerm || item.year == yearTerm) &&
             (!monthTerm || item.month == monthTerm)
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchButton.addEventListener('click', filterItems);
 
     resetButton.addEventListener('click', () => {
-        feeTypeSearch.value = '';
+        nameSearch.value = '';
         gradeSearch.value = '';
         yearSearch.value = '';
         monthSearch.value = '';

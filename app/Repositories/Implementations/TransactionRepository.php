@@ -7,10 +7,10 @@ use App\Repositories\Interfaces\TransactionRepositoryInterface;
 
 class TransactionRepository implements TransactionRepositoryInterface
 {
-    public function all()
+    public function all($student)
     {
         // Eager load fee and student for listing
-        return Transaction::with(['student', 'fee'])->get();
+        return Transaction::with(['student', 'fee'])->where('student_id', $student->id)->orderBy('id', 'desc')->get();
     }
 
     public function find($id)

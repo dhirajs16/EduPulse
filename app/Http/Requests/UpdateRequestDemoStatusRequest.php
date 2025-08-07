@@ -4,18 +4,17 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFeeTypeRequest extends FormRequest
+class UpdateRequestDemoStatusRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return true; // Adjust authorization as needed
     }
 
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:fee_types,name',
-            'description' => 'nullable|string|max:1000',
+            'status' => 'required|in:pending,approved,rejected',
         ];
     }
 }

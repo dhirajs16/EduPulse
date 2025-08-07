@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Failed to parse transactions JSON', e);
     }
 
-    const studentSearch = document.getElementById('studentSearch');
+    // const studentSearch = document.getElementById('studentSearch');
     const feeSearch = document.getElementById('feeSearch');
     const paymentDateSearch = document.getElementById('paymentDateSearch');
     const searchButton = document.getElementById('searchButton');
@@ -39,20 +39,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         tableBody.innerHTML = paginatedItems.map(item => `
             <tr>
-                <td>${item.id}</td>
+
                 <td>${item.student_name}</td>
                 <td>${item.fee_label}</td>
+                <td>${formatAmount(item.actual_charges)}</td>
                 <td>${formatAmount(item.amount_paid)}</td>
                 <td>${item.payment_date}</td>
-                <td>${item.notes || '-'}</td>
+                <td>${(item.notes || '-').toString().slice(0, 30)}${item.notes && item.notes.length > 30 ? '...' : ''}</td>
                 <td>
-                    <a href="{{ url('transactions') }}/${item.id}/edit" class="btn btn-sm btn-primary me-1" title="Edit">
+                    ${
+                        parseFloat(item.actual_charges) === parseFloat(item.amount_paid)
+                            ? `<span class="badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3">Paid</span>`
+                            : parseFloat(item.actual_charges) > parseFloat(item.amount_paid)
+                                ? `<span class="badge rounded-pill text-danger bg-light-danger p-2 text-uppercase px-3">Remaining</span>`
+                                : `<span class="badge rounded-pill text-black bg-light-secondary p-2 text-uppercase px-3">Unknown</span>`
+                    }
+                </td>
+                <td>
+                    <a href="{{ url('admin/transactions') }}/${item.student_id}/edit/${item.id}" class="btn btn-sm" title="Edit">
                         <i class='bx bxs-edit'></i>
                     </a>
-                    <form method="POST" action="{{ url('transactions') }}/${item.id}" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this transaction?');">
+                    <form method="POST" action="{{ url('admin/transactions') }}/${item.student_id}/${item.id}" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this transaction?');">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger" title="Delete">
+                        <button type="submit" class="btn btn-sm" title="Delete">
                             <i class='bx bxs-trash'></i>
                         </button>
                     </form>
@@ -110,12 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function filterItems() {
-        const studentTerm = studentSearch.value.trim().toLowerCase();
+        // const studentTerm = studentSearch.value.trim().toLowerCase();
         const feeTerm = feeSearch.value.trim();
         const paymentDateTerm = paymentDateSearch.value.trim();
 
         filteredItems = allItems.filter(item =>
-            (!studentTerm || item.student_name.includes(studentTerm)) &&
+            // (!studentTerm || item.student_name.includes(studentTerm)) &&
             (!feeTerm || String(item.fee_id) === feeTerm) &&
             (!paymentDateTerm || item.payment_date === paymentDateTerm)
         );
@@ -127,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchButton.addEventListener('click', filterItems);
 
     resetButton.addEventListener('click', () => {
-        studentSearch.value = '';
+        // studentSearch.value = '';
         feeSearch.value = '';
         paymentDateSearch.value = '';
         filteredItems = [...allItems];

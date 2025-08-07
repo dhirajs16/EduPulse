@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\TimeTable;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -47,6 +48,19 @@ class UpdateTimeTableRequest extends FormRequest
                     ->where('grade_id', $this->grade_id);
             })->ignore($id, 'id'),
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if (TimeTable::where('day', $this->day)
+            ->where('start_time', $this->start_time)
+            ->where('end_time', $this->end_time)
+            ->where('grade_id', $this->grade_id)
+            ->exists()) {
+                $validator->errors()->add('day', 'A timetable entry with the same day, start time, end time, and grade already exists.');
+            }
+        });
     }
 
     protected function overlapsLunchBreak($start, $end)

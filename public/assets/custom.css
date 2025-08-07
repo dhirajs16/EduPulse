@@ -18,3 +18,7 @@
     background-color: #f7A63B;
 }
 
+
+.active> .page-link {
+    background-color: #244960;
+}

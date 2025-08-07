@@ -10,9 +10,9 @@ class TransactionService
     {
     }
 
-    public function list()
+    public function list($student)
     {
-        return $this->transactionRepo->all();
+        return $this->transactionRepo->all($student);
     }
 
     public function find($id)

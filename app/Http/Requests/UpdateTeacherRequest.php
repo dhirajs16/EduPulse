@@ -17,13 +17,13 @@ class UpdateTeacherRequest extends FormRequest
         $teacherId = $this->route('teacher');
 
         return [
-            'avatar' => ['nullable', 'string', 'max:255'],
+            'avatar' => ['nullable', 'image', 'max:2048'],
             'prefix' => ['required', 'string', 'max:55'],
             'first_name' => ['required', 'string', 'max:255'],
             'middle_name' => ['nullable', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'gender' => ['required', 'in:male,female,other'],
-            'date_of_birth' => ['nullable', 'date'],
+            'date_of_birth' => ['nullable', 'date', 'before:' . now()->subYears(15)->toDateString()],
             'nid' => ['nullable', 'string', 'max:255'],
             'contact' => ['nullable', 'string', 'max:255'],
             'personal_email' => ['nullable', 'email', Rule::unique('teachers', 'personal_email')->ignore($teacherId)],
@@ -36,11 +36,11 @@ class UpdateTeacherRequest extends FormRequest
             'qualification' => ['nullable', 'string', 'max:255'],
 
 
-            'user_id' => ['required', 'exists:users,id'],
+            'user_id' => ['required', 'exists:teachers,user_id'],
 
-            'grade_subjects' => ['nullable', 'array'],
-            'grade_subjects.*.grade_id' => ['required', 'exists:grades,id'],
-            'grade_subjects.*.subject_id' => ['required', 'exists:subjects,id'],
+            // 'grade_subjects' => ['nullable', 'array'],
+            // 'grade_subjects.*.grade_id' => ['required', 'exists:grades,id'],
+            // 'grade_subjects.*.subject_id' => ['required', 'exists:subjects,id'],
         ];
     }
 }

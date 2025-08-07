@@ -14,7 +14,7 @@
             </nav>
         </div>
         <div class="ms-auto">
-            <a href="{{ route('admin.transactions.index') }}" class="btn btn-primary radius-30" style="background-color: #244960;">Back to List</a>
+            <a href="{{ route('admin.transactions.index', $student->id) }}" class="btn btn-primary radius-30" style="background-color: #244960;">Back to List</a>
         </div>
     </div>
     <!--end breadcrumb-->
@@ -23,21 +23,15 @@
         <div class="card-body p-4">
             <h5 class="card-title">Add Transaction</h5>
             <hr />
-            <form action="{{ route('admin.transactions.store') }}" method="POST">
+            <form action="{{ route('admin.transactions.store', $student->id) }}" method="POST">
                 @csrf
 
                 <div class="form-body mt-4">
                     <div class="row">
                         <div class="col-lg-6 mb-3">
                             <label for="student_id" class="form-label">Student <span class="text-danger">*</span></label>
-                            <select name="student_id" id="student_id" class="form-select @error('student_id') is-invalid @enderror" required>
-                                <option value="">Select Student</option>
-                                @foreach ($students as $student)
-                                    <option value="{{ $student->id }}" {{ old('student_id') == $student->id ? 'selected' : '' }}>
-                                        {{ $student->first_name }} {{ $student->middle_name }} {{ $student->last_name }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <input type="number" name="student_id" id="student_id" class="form-control" value="{{ $student->id }}" hidden>
+                            <input type="text" class="form-control" value="{{ $student->name }}" disabled>
                             @error('student_id')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -49,7 +43,7 @@
                                 <option value="">Select Fee</option>
                                 @foreach ($fees as $fee)
                                     <option value="{{ $fee->id }}" {{ old('fee_id') == $fee->id ? 'selected' : '' }}>
-                                        {{ $fee->feeType->name ?? 'N/A' }} - {{ $fee->grade->name ?? 'N/A' }} ({{ $fee->year }}/{{ $fee->month }})
+                                        {{ $fee->name ?? 'N/A' }} - {{ $fee->grade->name ?? 'N/A' }} ({{ $fee->year }}/{{ $fee->month }}) - (NRs.{{ $fee->amount }})
                                     </option>
                                 @endforeach
                             </select>

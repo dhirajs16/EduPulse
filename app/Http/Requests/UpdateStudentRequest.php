@@ -18,7 +18,7 @@ class UpdateStudentRequest extends FormRequest
             'first_name' => 'required|string|max:255',
             'middle_name' => 'nullable|string|max:255',
             'last_name' => 'required|string|max:255',
-            'date_of_birth' => 'nullable|date',
+            'date_of_birth' => ['nullable', 'date', 'before:' . now()->subYears(3)->toDateString()],
             'address' => 'nullable|string|max:500',
             'city' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',

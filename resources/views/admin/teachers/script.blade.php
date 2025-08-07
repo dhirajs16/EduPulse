@@ -49,18 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
             <tr>
                 <td>${item.name || 'N/A'}</td>
                 <td>${item.email || 'N/A'}</td>
-                <td>${truncateWithBadge(item.subjects)}</td>
-                <td>${truncateWithBadge(item.grades)}</td>
+                <td>${truncateWithBadge([...new Set(item.subjects)])}</td>
+                <td>${truncateWithBadge([...new Set(item.grades)])}</td>
                 <td>${item.gender || 'N/A'}</td>
                 <td>${item.salary}</td>
 
-                
+
                 <td>
-                    <a href="{{ url('admin/teachers') }}/${item.id}/edit" class="btn btn-sm btn-primary me-1" title="Edit"><i class='bx bxs-edit'></i></a>
+                    <a href="{{ url('admin/teachers') }}/${item.id}/edit" class="btn btn-sm" title="Edit"><i class='bx bxs-edit'></i></a>
                     <form method="POST" action="{{ url('admin/teachers') }}/${item.id}" onsubmit="return confirm('Are you sure to delete?');" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger" title="Delete"><i class='bx bxs-trash'></i></button>
+                        <button type="submit" class="btn btn-sm" title="Delete"><i class='bx bxs-trash'></i></button>
                     </form>
                 </td>
             </tr>

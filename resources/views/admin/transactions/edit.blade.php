@@ -8,13 +8,13 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <li class="breadcrumb-item"><a href="{{ route('admin-dashboard') }}"><i class="bx bx-home-alt"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item active" aria-current="page">Edit Transaction</li>
                 </ol>
             </nav>
         </div>
         <div class="ms-auto">
-            <a href="{{ route('admin.transactions.index') }}" class="btn btn-primary radius-30" style="background-color: #244960;">Back to List</a>
+            <a href="{{ route('admin.transactions.index', $student->id) }}" class="btn btn-primary radius-30" style="background-color: #244960;">Back to List</a>
         </div>
     </div>
     <!--end breadcrumb-->
@@ -23,7 +23,8 @@
         <div class="card-body p-4">
             <h5 class="card-title">Edit Transaction</h5>
             <hr />
-            <form action="{{ route('admin.transactions.update', $transaction->id) }}" method="POST">
+            {{-- @dd($transaction) --}}
+            <form action="{{ route('admin.transactions.update', ['student' => $student->id, 'transaction' => $transaction->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -31,14 +32,8 @@
                     <div class="row">
                         <div class="col-lg-6 mb-3">
                             <label for="student_id" class="form-label">Student <span class="text-danger">*</span></label>
-                            <select name="student_id" id="student_id" class="form-select @error('student_id') is-invalid @enderror" required>
-                                <option value="">Select Student</option>
-                                @foreach ($students as $student)
-                                    <option value="{{ $student->id }}" {{ old('student_id', $transaction->student_id) == $student->id ? 'selected' : '' }}>
-                                        {{ $student->first_name }} {{ $student->middle_name }} {{ $student->last_name }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <input type="number" name="student_id" id="student_id" class="form-control" value="{{ $student->id }}" hidden>
+                            <input type="text" class="form-control" value="{{ $student->name }}" disabled>
                             @error('student_id')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -50,7 +45,7 @@
                                 <option value="">Select Fee</option>
                                 @foreach ($fees as $fee)
                                     <option value="{{ $fee->id }}" {{ old('fee_id', $transaction->fee_id) == $fee->id ? 'selected' : '' }}>
-                                        {{ $fee->feeType->name ?? 'N/A' }} - {{ $fee->grade->name ?? 'N/A' }} ({{ $fee->year }}/{{ $fee->month }})
+                                        {{ $fee->name ?? 'N/A' }} - {{ $fee->grade->name ?? 'N/A' }} ({{ $fee->year }}/{{ $fee->month }}) - (NRs.{{ $fee->amount }})
                                     </option>
                                 @endforeach
                             </select>
@@ -69,7 +64,7 @@
 
                         <div class="col-lg-6 mb-3">
                             <label for="payment_date" class="form-label">Payment Date <span class="text-danger">*</span></label>
-                            <input type="date" name="payment_date" id="payment_date" class="form-control @error('payment_date') is-invalid @enderror" value="{{ old('payment_date', $transaction->payment_date->format('Y-m-d')) }}" required>
+                            <input type="date" name="payment_date" id="payment_date" class="form-control @error('payment_date') is-invalid @enderror" value="{{ old('payment_date', \Carbon\Carbon::parse($transaction->payment_date)->format('Y-m-d')) }}" required>
                             @error('payment_date')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror

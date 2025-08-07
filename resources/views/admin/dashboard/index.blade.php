@@ -3,6 +3,7 @@
 @section('content')
     <div class="page-content">
 
+        {{-- @dd(\App\Models\Student::count()); --}}
         {{-- top 4 dashboard options --}}
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
             {{-- Profile --}}

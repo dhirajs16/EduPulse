@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Teacher;
+use App\Models\TimeTable;
 use App\Models\User;
 use Database\Seeders\AdminSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Ramsey\Uuid\Type\Time;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,13 +25,15 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            UserSeeder::class,
-            GradeSeeder::class,
-            RolePermissionSeeder::class,
-            AdminSeeder::class,
-            SubjectSeeder::class,
-            StudentSeeder::class,
-            TeacherSeeder::class,
+            // UserSeeder::class,
+            // GradeSeeder::class,
+            // RolePermissionSeeder::class,
+            // AdminSeeder::class,
+            // SubjectSeeder::class,
+            // StudentSeeder::class,
+            // TeacherSeeder::class,
+            // GradeTeacherSeeder::class,
+            TimeTableSeeder::class,
         ]);
     }
 }
