@@ -9,12 +9,17 @@ class RequestDemoRepository implements RequestDemoRepositoryInterface
 {
     public function all()
     {
-        return RequestDemo::orderByDesc('created_at')->get();
+        return RequestDemo::all();
     }
 
     public function find(int $id)
     {
         return RequestDemo::findOrFail($id);
+    }
+
+    public function create(array $data)
+    {
+        return RequestDemo::create($data);
     }
 
     public function updateStatus(int $id, string $status)

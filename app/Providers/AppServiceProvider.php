@@ -11,6 +11,7 @@ use App\Repositories\Implementations\GradeTeacherRepository;
 use App\Repositories\Implementations\RequestDemoRepository;
 use App\Repositories\Implementations\StudentRepository;
 use App\Repositories\Implementations\SubjectRepository;
+use App\Repositories\Implementations\SyllabusRepository;
 use App\Repositories\Implementations\SystemSettingRepository;
 use App\Repositories\Implementations\TeacherRepository;
 use App\Repositories\Implementations\TimeTableRepository;
@@ -23,6 +24,7 @@ use App\Repositories\Interfaces\GradeTeacherRepositoryInterface;
 use App\Repositories\Interfaces\RequestDemoRepositoryInterface;
 use App\Repositories\Interfaces\StudentRepositoryInterface;
 use App\Repositories\Interfaces\SubjectRepositoryInterface;
+use App\Repositories\Interfaces\SyllabusRepositoryInterface;
 use App\Repositories\Interfaces\SystemSettingRepositoryInterface;
 use App\Repositories\Interfaces\TeacherRepositoryInterface;
 use App\Repositories\Interfaces\TimeTableRepositoryInterface;
@@ -50,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(BookRepositoryInterface::class, BookRepository::class);
         $this->app->bind(GradeTeacherRepositoryInterface::class, GradeTeacherRepository::class);
         $this->app->bind(RequestDemoRepositoryInterface::class, RequestDemoRepository::class);
+        $this->app->bind(SyllabusRepositoryInterface::class, SyllabusRepository::class);
 
         // You can add more bindings here as needed
     }

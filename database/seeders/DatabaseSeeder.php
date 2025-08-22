@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Syllabus;
 use App\Models\Teacher;
 use App\Models\TimeTable;
 use App\Models\User;
@@ -25,15 +26,16 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            // UserSeeder::class,
-            // GradeSeeder::class,
-            // RolePermissionSeeder::class,
-            // AdminSeeder::class,
-            // SubjectSeeder::class,
-            // StudentSeeder::class,
-            // TeacherSeeder::class,
-            // GradeTeacherSeeder::class,
+            UserSeeder::class,
+            GradeSeeder::class,
+            RolePermissionSeeder::class,
+            AdminSeeder::class,
+            SubjectSeeder::class,
+            StudentSeeder::class,
+            TeacherSeeder::class,
+            GradeTeacherSeeder::class,
             TimeTableSeeder::class,
+            SyllabusSeeder::class,
         ]);
     }
 }

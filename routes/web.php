@@ -4,13 +4,17 @@ use App\Http\Controllers\Frontend\AssignmentController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\SyllabusController;
 use App\Http\Controllers\Frontend\TimeTableController;
 use App\Http\Controllers\Frontend\TransactionController;
+use App\Http\Controllers\RequestDemoController;
 use Illuminate\Support\Facades\Route;
 
 
 // Home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/request-demo', [RequestDemoController::class, 'create'])->name('request_demo.create');
+Route::post('/request-demo', [RequestDemoController::class, 'store'])->name('request_demo.store');
 
 // auth and verified routes
 Route::middleware(['auth', 'verified'])
@@ -36,6 +40,11 @@ Route::middleware(['auth', 'verified'])
     Route::get('time-tables/{grade}', [TimeTableController::class, 'show'])->name('time-tables.show');
     // transaction routes
     Route::get('transactions/{student}', [TransactionController::class, 'show'])->name('transactions.show');
+
+
+    // syllabi routes
+    Route::get('syllabi/subjects', [SyllabusController::class, 'subjectList'])->name('syllabi.subjects');
+    Route::get('syllabi/{grade}/{subject}', [SyllabusController::class, 'syllabusDetails'])->name('syllabi.details');
 });
 
 

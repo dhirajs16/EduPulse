@@ -16,6 +16,7 @@ use App\Http\Controllers\GradeTeacherController;
 use App\Http\Controllers\RequestDemoController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\SyllabusController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TimeTableController;
 use App\Http\Controllers\TransactionController;
@@ -96,6 +97,9 @@ Route::middleware('auth:admin')
 
             // Teacher management routes
             Route::resource('time-tables', TimeTableController::class);
+
+            // Syllabus management routes
+            Route::resource('syllabi', SyllabusController::class);
 
             // request demo management routes
             Route::resource('request_demos', RequestDemoController::class)->only(['index', 'show']);

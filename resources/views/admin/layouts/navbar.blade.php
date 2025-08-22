@@ -28,7 +28,7 @@
         </li>
         <li>
             <a href="{{ route('admin.profile') }}">
-                <div class="parent-icon"><i class='bx bx-category'></i>
+                <div class="parent-icon"><i class='bx bx-user-circle'></i>
                 </div>
                 <div class="menu-title">Profile</div>
             </a>
@@ -77,9 +77,16 @@
             <li class="menu-label">{{ __('Academics Management') }}</li>
             <li>
                 <a href="{{ route('admin.subjects.index') }}">
-                    <div class="parent-icon"><i class='bx bx-category'></i>
+                    <div class="parent-icon"><i class='fadeIn animated bx bx-book-bookmark'></i>
                     </div>
                     <div class="menu-title">Subjects</div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.syllabi.index') }}">
+                    <div class="parent-icon"><i class='bx bx-category'></i>
+                    </div>
+                    <div class="menu-title">Syllabi</div>
                 </a>
             </li>
             <li>
@@ -107,7 +114,7 @@
 
             <li>
                 <a href="{{ route('admin.fees.index') }}">
-                    <div class="parent-icon"><i class='bx bx-category'></i>
+                    <div class="parent-icon"><i class='fadeIn animated bx bx-money'></i>
                     </div>
                     <div class="menu-title">Fees</div>
                 </a>

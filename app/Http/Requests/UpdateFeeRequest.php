@@ -21,7 +21,7 @@ class UpdateFeeRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                Rule::unique('fees', 'name')->ignore($this->route('fee') ?? $this->fee),
+                'exists:fees,name',
             ],
             'description' => 'nullable|string|max:1000',
             'grade_id' => 'required|exists:grades,id',

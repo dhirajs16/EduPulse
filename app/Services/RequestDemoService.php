@@ -20,6 +20,11 @@ class RequestDemoService
         return $this->requestDemoRepo->find($id);
     }
 
+    public function store(array $data)
+    {
+        return $this->requestDemoRepo->create($data);
+    }
+
     public function updateStatus($id, string $status)
     {
         return $this->requestDemoRepo->updateStatus($id, $status);

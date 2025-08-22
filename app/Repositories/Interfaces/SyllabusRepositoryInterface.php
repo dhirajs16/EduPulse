@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interfaces;
 
-interface RequestDemoRepositoryInterface
+interface SyllabusRepositoryInterface
 {
     public function all();
 
@@ -10,5 +10,7 @@ interface RequestDemoRepositoryInterface
 
     public function create(array $data);
 
-    public function updateStatus(int $id, string $status);
+    public function update(int $id, array $data);
+
+    public function delete(int $id);
 }

@@ -53,6 +53,13 @@
                     <div class="menu-title">Time Table</div>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('syllabi.subjects') }}">
+                    <div class="parent-icon"><i class='bx bx-cookie'></i>
+                    </div>
+                    <div class="menu-title">Syllabus</div>
+                </a>
+            </li>
             {{-- show assignments --}}
             <li>
                 <a href="{{ route('assignments.show', Auth::guard('web')->user()->student->grade->id) }}">

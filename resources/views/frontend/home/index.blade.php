@@ -15,8 +15,8 @@
 
 
                 @if (!Auth::check())
-                    <a href="#" class="btn btn-primary border rounded-pill py-3 px-5 wow fadeInUp"
-                        data-wow-delay="0.1s">Request Free Demo</a>
+                    <a href="{{ route('request_demo.create') }}" class="btn btn-primary border rounded-pill py-3 px-5 wow fadeInUp"
+                        >Request Free Demo</a>
                     <a href="{{ route('login') }}" class="btn btn-primary border  rounded-pill py-3 px-5 wow fadeInUp ms-2"
                         data-wow-delay="0.1s">Log In</a>
                 @else
@@ -519,7 +519,7 @@
                     <p class="fs-4 text-white mb-4">Join the growing community of educational institutions in Birgunj that
                         are using EduPulse to streamline their operations.</p>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-light rounded-pill py-3 px-5 me-3">Request Free Demo</a>
+                        <a href="{{ route('request_demo.create') }}" class="btn btn-light rounded-pill py-3 px-5 me-3">Request Free Demo</a>
                         <a href="" class="btn btn-outline-light rounded-pill py-3 px-5">Contact
                             Sales</a>
 
