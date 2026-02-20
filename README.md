@@ -88,20 +88,20 @@ php artisan optimize:clear
 ## 📚 Tech Stack
 
 ```
-Backend: Laravel 10.x, MySQL, Livewire
-Frontend: Tailwind CSS, Alpine.js
-Auth: Laravel Sanctum
-Queue: Redis/Database
-Deployment: Forge/Vapor
+Backend: Laravel 11.x, MySQL, 
+Frontend: Tailwind CSS, Blade Template
+Auth: Laravel Breeze (2 Custom Guards)
+Mail: SMTP, Gmail App Service
+Version Control: Git & GitHub
 ```
 
 ## 🔐 Default Login
 
 After seeding:
 ```
-Admin: admin@edupulse.com / password
-Teacher: teacher@edupulse.com / password  
-Student: student@edupulse.com / password
+Admin: admin@gmail.com / pw: 12345678
+Teacher: teacher1@example.com / pw: 12345678  
+Student: student1@example.com / pw: 12345678
 ```
 
 ## 🤝 Contributing
@@ -124,5 +124,5 @@ MIT License - see [LICENSE](LICENSE) file.
 ***
 
 <div align="center">
-Built with ❤️ for better school management
+Simplifying school administration 🏫📚, empowering education ✨
 </div>
