@@ -1,20 +1,7 @@
 # Edupulse: A School erp
 
-light blue: #4688AA
-blue: #244960
-orange: #f7A63B
+<img width="1891" height="985" alt="Screenshot 2025-08-21 082804" src="https://github.com/user-attachments/assets/419091a9-5c11-4cf0-b8f0-a3d424feed57" />
 
-@extends('admin.layouts.master')
-
-
-
-+
-bx bxs-plus-square
-
- radius-30" style="background-color: #244960;"
-
-badge rounded-pill text-success bg-light-success p-2 text-uppercase px-3
-<i class="bx bxs-circle me-1"></i>
 
 ## Getting started
 
@@ -29,7 +16,7 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/dhirajs16/knight_nepal.git
+git remote add origin https://github.com/dhirajs16/EduPulse.git
 git branch -M main
 git push -uf origin main
 ```
