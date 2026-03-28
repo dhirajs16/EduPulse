@@ -12,7 +12,12 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><i class="fadeIn animated bx bx-book-open"></i> Grade</h6>
+                @if ($user->user_type == 'student')
                 <span class="text-secondary">{{ $user->grade->name }}</span>
+
+                @else
+                hello
+                @endif
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                 <h6 class="mb-0"><i class="fadeIn animated bx bx-calendar-star"></i> DOB (AD)</h6>

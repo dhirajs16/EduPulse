@@ -10,9 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
             <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-            <a href="#" class="nav-item nav-link">About</a>
-            <a href="#" class="nav-item nav-link">Services</a>
-            <div class="nav-item dropdown">
+            <a href="#about" class="nav-item nav-link">About</a>
+            <a href="#features" class="nav-item nav-link">Feature</a>
+            <a href="#testimonials" class="nav-item nav-link">Testimonials</a>
+            {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu m-0">
                     <a href="#" class="dropdown-item">Features</a>
@@ -21,13 +22,13 @@
                     <a href="#" class="dropdown-item">Testimonial</a>
                     <a href="#" class="dropdown-item">404 Page</a>
                 </div>
-            </div>
-            <a href="#" class="nav-item nav-link">Contact Us</a>
+            </div> --}}
+            <a href="#contact" class="nav-item nav-link">Contact Us</a>
         </div>
         @if(!Auth::check())
         <a href="{{ route("login") }}" class="btn btn-light border  rounded-pill text-primary py-2 px-4 me-4">Log
             In</a>
-        <a href="{{ route('register') }}" class="btn btn-primary border rounded-pill text-white py-2 px-4">Request For Demo</a>
+        <a href="{{ route('request_demo.create') }}" class="btn btn-primary border rounded-pill text-white py-2 px-4">Request For Demo</a>
 
 
         @else

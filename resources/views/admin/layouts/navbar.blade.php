@@ -73,6 +73,13 @@
                     <div class="menu-title">Roles & Permissions</div>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.request_demos.index') }}">
+                    <div class="parent-icon"><i class='bx bx-category'></i>
+                    </div>
+                    <div class="menu-title">Demo Request List</div>
+                </a>
+            </li>
 
             <li class="menu-label">{{ __('Academics Management') }}</li>
             <li>

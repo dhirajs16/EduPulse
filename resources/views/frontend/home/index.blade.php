@@ -63,7 +63,7 @@
     <!-- Trusted Schools End -->
 
     <!-- About Start -->
-    <div class="container-fluid overflow-hidden py-5" style="margin-top: 6rem;">
+    <div id="about" class="container-fluid overflow-hidden py-5" style="margin-top: 6rem;">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -117,7 +117,7 @@
     <!-- About End -->
 
     <!-- Service Start -->
-    <div class="container-fluid service py-5">
+    <div id="features" class="container-fluid service py-5">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                 <h4 class="mb-1" style="color: #f4a02a">Our Modules</h4>
@@ -407,7 +407,7 @@
     <!-- Mobile App End -->
 
     <!-- Testimonials Start -->
-    <div class="container-fluid testimonial py-5 bg-light">
+    <div id="testimonials" class="container-fluid testimonial py-5 bg-light">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                 <h4 class="" style="color: #1b3e53">Testimonials</h4>
@@ -418,12 +418,12 @@
             </div>
             <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
                 <div class="testimonial-item"
-                    data-dot="<img class='img-fluid' src='assets/home/img/testimonial-1.jpg' alt=''>">
+                    data-dot="<img class='img-fluid' src='{{ asset("assets/home/img/testimonial-1.jpeg") }}' alt=''>">
                     <div class="testimonial-inner text-center p-5">
                         <div class="d-flex align-items-center justify-content-center mb-4">
                             <div class="testimonial-inner-img border border-primary border-3 me-4"
                                 style="width: 100px; height: 100px; border-radius: 50%;">
-                                <img src="{{ asset('assets/home/img/testimonial-1.jpg') }}"
+                                <img src="{{ asset('assets/home/img/testimonial-1.jpeg') }}"
                                     class="img-fluid rounded-circle" alt="Principal Sharma">
                             </div>
                             <div>
@@ -447,12 +447,12 @@
                     </div>
                 </div>
                 <div class="testimonial-item"
-                    data-dot="<img class='img-fluid' src='assets/home/img/testimonial-2.jpg' alt=''>">
+                    data-dot="<img class='img-fluid' src='{{ asset('assets/home/img/testimonial-2.jpeg') }}' alt=''>">
                     <div class="testimonial-inner text-center p-5">
                         <div class="d-flex align-items-center justify-content-center mb-4">
                             <div class="testimonial-inner-img border border-primary border-3 me-4"
                                 style="width: 100px; height: 100px; border-radius: 50%;">
-                                <img src="{{ asset('assets/home/img/testimonial-2.jpg') }}"
+                                <img src="{{ asset('assets/home/img/testimonial-2.jpeg') }}"
                                     class="img-fluid rounded-circle" alt="Administrator Kaur">
                             </div>
                             <div>
@@ -476,12 +476,12 @@
                     </div>
                 </div>
                 <div class="testimonial-item"
-                    data-dot="<img class='img-fluid' src='assets/home/img/testimonial-3.jpg' alt=''>">
+                    data-dot="<img class='img-fluid' src='{{ asset('assets/home/img/testimonial-3.jpeg') }}' alt=''>">
                     <div class="testimonial-inner text-center p-5">
                         <div class="d-flex align-items-center justify-content-center mb-4">
                             <div class="testimonial-inner-img border border-primary border-3 me-4"
                                 style="width: 100px; height: 100px; border-radius: 50%;">
-                                <img src="{{ asset('assets/home/img/testimonial-3.jpg') }}"
+                                <img src="{{ asset('assets/home/img/testimonial-3.jpeg') }}"
                                     class="img-fluid rounded-circle" alt="Teacher Yadav">
                             </div>
                             <div>
@@ -511,7 +511,7 @@
     <!-- Testimonials End -->
 
     <!-- CTA Start -->
-    <div class="container-fluid py-5" style="background-color: #f4a02a">
+    <div id="contact" class="container-fluid py-5" style="background-color: #f4a02a">
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -520,8 +520,8 @@
                         are using EduPulse to streamline their operations.</p>
                     <div class="d-flex justify-content-center">
                         <a href="{{ route('request_demo.create') }}" class="btn btn-light rounded-pill py-3 px-5 me-3">Request Free Demo</a>
-                        <a href="" class="btn btn-outline-light rounded-pill py-3 px-5">Contact
-                            Sales</a>
+                        {{-- <a href="" class="btn btn-outline-light rounded-pill py-3 px-5">Contact
+                            Sales</a> --}}
 
                     </div>
                 </div>

@@ -24,7 +24,6 @@ class ProfileController extends Controller
         } elseif ($user->user_type == 'teacher') {
             $user = $user->teacher;
         }
-
         return view('frontend.dashboard.profile.personal_info', compact('user'));
     }
 
