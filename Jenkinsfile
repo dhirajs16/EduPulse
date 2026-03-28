@@ -2,21 +2,27 @@ pipeline {
     agent any
     stages {
         stage('Checkout') {
-            echo 'Checking out code from GitHub...'
+            steps {
+                echo 'Checking out code from GitHub...'
+            }
         }
 
         stage('Build') {
-            echo 'Building Laravel Project...'
-            bat 'composer install --no-interaction --prefer-dist --no-dev'
-            bat 'php artisan key:generate --no-interaction --force'
-            bat 'php artisan config:cache'
-            bat 'php artisan route:cache'
-            bat 'php artisan view:cache'
+            steps {
+                echo 'Building Laravel Project...'
+                bat 'composer install --no-interaction --prefer-dist --no-dev'
+                bat 'php artisan key:generate --no-interaction --force'
+                bat 'php artisan config:cache'
+                bat 'php artisan route:cache'
+                bat 'php artisan view:cache'
+            }
         }
 
         stage('Test') {
-            echo 'Testing Laravel Project...'
-            bat 'php artisan test --filter="critical"'
+            steps {
+                echo 'Testing Laravel Project...'
+                bat 'php artisan test --filter="critical"'
+            }
         }
     }
     post {
